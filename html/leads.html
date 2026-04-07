@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leads - Audit CRM Auto Declic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="page-audit">
+  <header class="report-hero" id="top">
+    <div class="report-hero__glow"></div>
+    <div class="container report-hero__inner">
+      <a class="back-pill" href="../index.html">Retour au sommaire</a>
+
+      <div class="report-hero__meta">
+        <span class="report-tag">Module 02</span>
+        <span class="report-tag report-tag--soft">Audit Zoho CRM</span>
+      </div>
+
+      <h1>Leads</h1>
+      <p class="report-lead">
+        Analyse du module Leads de Zoho CRM : lisibilité du tableau, qualité réelle des champs,
+        richesse des listes de valeurs, surcharge des filtres, intérêt des vues alternatives
+        et niveau d’exploitabilité du détail d’un lead pour les équipes métier.
+      </p>
+    </div>
+  </header>
+
+  <main class="container report-layout">
+    <aside class="toc">
+      <div class="toc-card">
+        <p class="toc-label">Sur cette page</p>
+        <nav class="toc-links">
+          <a href="#synthese">Synthèse</a>
+          <a href="#tableau">Tableau principal</a>
+          <a href="#valeurs">Valeurs métier</a>
+          <a href="#qualite-donnees">Qualité des données</a>
+          <a href="#filtres">Filtres et vues</a>
+          <a href="#detail">Détail d’un lead</a>
+          <a href="#actions">Actions recommandées</a>
+        </nav>
+      </div>
+    </aside>
+
+    <section class="report-content">
+      <section id="synthese" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Lecture rapide</span>
+          <h2>Synthèse</h2>
+          <p>
+            Le module Leads contient une base exploitable et structurée, mais sa lecture est pénalisée
+            par un tableau trop dense, des champs souvent vides, des listes de valeurs nombreuses
+            et un niveau de filtre supérieur au besoin réel des utilisateurs.
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-card__label">Constat principal</span>
+            <h3>Structure riche mais lourde</h3>
+            <p>Le module contient beaucoup d’informations utiles, mais elles sont présentées dans une interface trop chargée.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Impact métier</span>
+            <h3>Lecture et tri ralentis</h3>
+            <p>Le vendeur ou gestionnaire doit parcourir trop de colonnes et trop de champs avant d’agir.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Priorité audit</span>
+            <h3>Mieux hiérarchiser l’essentiel</h3>
+            <p>Le besoin principal n’est pas d’ajouter des données, mais de rendre visibles les données vraiment utiles.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tableau" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 01</span>
+          <h2>Tableau principal</h2>
+          <p>
+            La vue liste constitue le cœur du module. Elle affiche 259 enregistrements avec pagination par 100,
+            dans un tableau large qui concentre l’essentiel des informations commerciales, administratives et de suivi.
+          </p>
+        </div>
+
+        <div class="capture-strip">
+          <figure class="capture-large">
+            <img src="../images/02-leads/1.png" alt="Vue tableau du module Leads dans Zoho CRM" />
+            <figcaption>Vue liste — tableau principal du module Leads avec colonnes nombreuses et pagination.</figcaption>
+          </figure>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Champs visibles</h3>
+            <ul class="clean-list">
+              <li>Nom, Enseigne(s), Code postal, Ville, N° DE TVA INTRA</li>
+              <li>Disposition, Pays, État du prospect Vente, Statut du Lead</li>
+              <li>Chiffre d’affaires, Groupe, Nb J dernière interaction, Notification</li>
+              <li>Dernier e-mail envoyé ou reçu, Dernier remarque ajouté, Dernier appel fait</li>
+              <li>Activité, Gestionnaire Vente, E-mail, Téléphone, Nom de Lead, Site Web</li>
+              <li>Information Entreprise, Information Contact</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Lecture d’ensemble</h3>
+            <ul class="clean-list">
+              <li>Le tableau est informativement riche.</li>
+              <li>La densité visuelle est très forte.</li>
+              <li>Plusieurs colonnes ne sont pas assez remplies pour justifier leur présence permanente.</li>
+              <li>Le balayage rapide des leads prioritaires devient difficile.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card">
+          <strong>Lecture UX :</strong> la structure est complète sur le papier, mais l’utilisateur doit fournir
+          un effort visuel trop important pour retrouver les signaux réellement utiles à l’action.
+        </div>
+      </section>
+
+      <section id="valeurs" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 02</span>
+          <h2>Valeurs métier</h2>
+          <p>
+            Plusieurs champs du module reposent sur des listes de valeurs structurantes. Elles sont utiles pour normaliser la donnée,
+            mais leur présentation doit être rendue plus visible et plus pédagogique dans l’audit.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Statut du Lead — 4 valeurs</h3>
+            <ul class="clean-list">
+              <li>Non Contacté</li>
+              <li>Tentative de Contact</li>
+              <li>Contact identifié</li>
+              <li>Fiche prête</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>État du prospect Vente — 7 valeurs</h3>
+            <ul class="clean-list">
+              <li>Non intéressé</li>
+              <li>Chaud</li>
+              <li>Rattaché</li>
+              <li>Hors cible</li>
+              <li>Blacklist</li>
+              <li>Ne pas contacter</li>
+              <li>Perdu</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Notification — 5 valeurs</h3>
+            <ul class="clean-list">
+              <li>Suivi</li>
+              <li>Lié à un groupe</li>
+              <li>- de 5j avant passage en pot commun</li>
+              <li>En attente d’un nouveau Gestionnaire</li>
+              <li>Exception justifiée</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Activité — 6 types</h3>
+            <ul class="clean-list">
+              <li>Concessionnaire</li>
+              <li>Constructeur</li>
+              <li>Cellule d’achat</li>
+              <li>Loueur</li>
+              <li>Agent</li>
+              <li>Marchand</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Autres champs à choix</h3>
+            <ul class="clean-list">
+              <li><strong>Disposition :</strong> Étranger, Layout Vendeur, Standard</li>
+              <li><strong>Information Contact :</strong> Oui, Infos contact incomplet</li>
+              <li><strong>Pays :</strong> liste de pays prédéfinie</li>
+              <li><strong>Marque(s) Info(s) :</strong> grande liste de marques</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Lecture d’audit</h3>
+            <p>
+              Ces listes montrent une vraie volonté de structuration métier. En revanche, elles gagneraient à être regroupées,
+              clarifiées et mieux mises en avant dans l’interface et dans la documentation fonctionnelle.
+            </p>
+          </article>
+        </div>
+
+        <div class="capture-strip">
+          <figure class="capture-large">
+            <img src="../images/02-leads/2.png" alt="Capture des filtres et des sélections du module Leads" />
+            <figcaption>Filtres et sélections — diversité importante des catégories et des valeurs disponibles.</figcaption>
+          </figure>
+
+          <figure class="capture-large">
+            <img src="../images/02-leads/3.png" alt="Vue Kanban du module Leads dans Zoho CRM" />
+            <figcaption>Vue Kanban — lecture alternative du pipeline, plus visuelle mais à confirmer côté usage réel.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="qualite-donnees" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 03</span>
+          <h2>Qualité des données</h2>
+          <p>
+            L’audit met en évidence une différence nette entre les champs réellement exploités au quotidien
+            et les champs prévus dans le modèle mais très peu renseignés.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Champs souvent utiles</h3>
+            <ul class="clean-list">
+              <li>Téléphone, car l’usage principal reste l’appel sortant</li>
+              <li>E-mail, lorsqu’il est connu</li>
+              <li>Pays, Ville, Code postal</li>
+              <li>Activité</li>
+              <li>Gestionnaire Vente</li>
+              <li>Nom de Lead, quand il est identifié</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Champs peu exploitables</h3>
+            <ul class="clean-list">
+              <li>Nom, souvent remplacé par “a qualifier”</li>
+              <li>Enseigne(s), majoritairement vide</li>
+              <li>Chiffre d’affaires, généralement absent</li>
+              <li>Groupe, souvent vide</li>
+              <li>Dernier e-mail envoyé ou reçu, souvent vide</li>
+              <li>Dernier remarque ajouté, souvent vide</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card insight-card--warning">
+          <strong>Point de vigilance :</strong> un champ visible mais rarement renseigné coûte en lisibilité.
+          Lorsqu’un champ n’aide pas à décider, il devrait être masqué, déplacé ou rendu secondaire.
+        </div>
+      </section>
+
+      <section id="filtres" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 04</span>
+          <h2>Filtres et vues</h2>
+          <p>
+            Le module propose un système de filtrage très vaste ainsi que plusieurs vues alternatives,
+            mais cette richesse fonctionnelle donne aussi une impression de dispersion.
+          </p>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Catégories de filtres</h3>
+            <ul class="clean-list">
+              <li>Filtres définis par le système</li>
+              <li>Filtrer par champs</li>
+              <li>Filtrer par sous-formulaires</li>
+              <li>Filtrer par modules associés</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Vues disponibles</h3>
+            <ul class="clean-list">
+              <li>Vue tableau</li>
+              <li>Vue Kanban</li>
+              <li>Affichage de graphe</li>
+              <li>Vue chronologique</li>
+              <li>Vue fractionnée</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="long-card">
+          <h3>Lecture d’audit</h3>
+          <p>
+            L’existence de plusieurs modes de lecture peut être utile, notamment pour l’analyse ou le pilotage.
+            En revanche, sans hiérarchisation claire, l’ensemble donne une impression de trop-plein fonctionnel.
+            Le risque est de complexifier l’expérience au lieu d’aider l’utilisateur à trouver plus vite les bons leads.
+          </p>
+        </div>
+      </section>
+
+      <section id="detail" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 05</span>
+          <h2>Détail d’un lead</h2>
+          <p>
+            Lorsqu’un utilisateur clique sur une ligne, le CRM ouvre une fiche très complète avec sections,
+            informations de contact, informations entreprise, rattachements, historique et champs techniques.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Points positifs</h3>
+            <ul class="clean-list">
+              <li>La fiche permet d’avoir une vision détaillée du lead.</li>
+              <li>Les coordonnées principales restent visibles.</li>
+              <li>Le gestionnaire vente et le statut sont clairement identifiables.</li>
+              <li>La structure couvre les besoins vente et qualification.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Points de friction</h3>
+            <ul class="clean-list">
+              <li>La page contient trop d’informations secondaires.</li>
+              <li>Des champs techniques devraient être retirés ou masqués.</li>
+              <li>Des sections entières restent vides.</li>
+              <li>La lecture de l’essentiel n’est pas assez priorisée.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card insight-card--accent">
+          <strong>Enjeu fonctionnel :</strong> la fiche lead doit rester exhaustive, mais elle devrait d’abord
+          mettre en avant les informations d’action immédiate : contacter, qualifier, rattacher, relancer.
+        </div>
+      </section>
+
+      <section id="actions" class="report-section report-section--final">
+        <div class="section-intro">
+          <span class="section-kicker">Plan d’action</span>
+          <h2>Actions recommandées</h2>
+          <p>
+            Les premières améliorations doivent porter sur la visibilité, la hiérarchie de lecture
+            et la réduction du bruit visuel dans le tableau comme dans la fiche détaillée.
+          </p>
+        </div>
+
+        <div class="actions-grid">
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Alléger la vue tableau</h3>
+            <p>Conserver visibles uniquement les colonnes les plus utiles au tri rapide et placer le reste en second niveau.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Rendre les listes métier plus lisibles</h3>
+            <p>Documenter clairement les 4 statuts lead, 7 états prospect, 5 notifications et 6 activités.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Masquer les champs trop vides</h3>
+            <p>Réduire la présence permanente des champs peu remplis pour améliorer la vitesse de lecture.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Rationaliser les filtres</h3>
+            <p>Revoir la logique des catégories pour limiter l’effet de surcharge côté utilisateur.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Repenser la fiche détail</h3>
+            <p>Afficher d’abord l’actionnable et reléguer les blocs secondaires dans des sections repliables.</p>
+          </article>
+        </div>
+
+        <a class="back-to-top" href="#top">Revenir en haut</a>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
