@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comptes - Audit CRM Auto Declic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="page-audit">
+  <header class="report-hero" id="top">
+    <div class="report-hero__glow"></div>
+    <div class="container report-hero__inner">
+      <a class="back-pill" href="../index.html">Retour au sommaire</a>
+
+      <div class="report-hero__meta">
+        <span class="report-tag">Module 04</span>
+        <span class="report-tag report-tag--soft">Audit Zoho CRM</span>
+      </div>
+
+      <h1>Comptes</h1>
+      <p class="report-lead">
+        Analyse du module Comptes de Zoho CRM : structure du tableau, nouveaux champs par rapport aux Leads,
+        logique achat et vente, qualité des informations disponibles, filtres, et niveau de lisibilité globale
+        d’un module contenant plus de 503 enregistrements.
+      </p>
+    </div>
+  </header>
+
+  <main class="container report-layout">
+    <aside class="toc">
+      <div class="toc-card">
+        <p class="toc-label">Sur cette page</p>
+        <nav class="toc-links">
+          <a href="#synthese">Synthèse</a>
+          <a href="#tableau">Tableau principal</a>
+          <a href="#nouveaux-champs">Nouveaux champs</a>
+          <a href="#statuts">Statut achat</a>
+          <a href="#qualite-donnees">Qualité des données</a>
+          <a href="#filtres">Filtres</a>
+          <a href="#actions">Actions recommandées</a>
+        </nav>
+      </div>
+    </aside>
+
+    <section class="report-content">
+      <section id="synthese" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Lecture rapide</span>
+          <h2>Synthèse</h2>
+          <p>
+            Le module Comptes reprend une partie de la logique déjà vue dans Leads, mais il ajoute une couche de suivi
+            plus avancée autour des gestionnaires achat, des interactions achat et vente, des données de facturation
+            et du statut achat des comptes. Cette richesse est utile, mais elle augmente aussi la densité visuelle du tableau.
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-card__label">Constat principal</span>
+            <h3>Module plus mature que Leads</h3>
+            <p>Le module Comptes semble davantage centré sur le suivi d’entreprises déjà qualifiées que sur la simple prospection.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Risque</span>
+            <h3>Surcharge de lecture</h3>
+            <p>La multiplication des colonnes métiers, techniques et de suivi réduit la lisibilité immédiate des informations prioritaires.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Priorité audit</span>
+            <h3>Clarifier l’usage réel</h3>
+            <p>Il faut distinguer les champs réellement utilisés des champs prévus mais peu ou pas renseignés.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tableau" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 01</span>
+          <h2>Tableau principal</h2>
+          <p>
+            La vue Comptes présente plus de 503 enregistrements dans un tableau large, avec une logique davantage orientée
+            entreprise, qualification durable, suivi achat et suivi commercial.
+          </p>
+        </div>
+
+        <div class="capture-strip">
+          <figure class="capture-large">
+            <img src="../images/04-comptes/1.png" alt="Vue tableau du module Comptes dans Zoho CRM" />
+            <figcaption>Vue liste — module Comptes avec plus de 503 enregistrements et colonnes nombreuses.</figcaption>
+          </figure>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Colonnes identifiées</h3>
+            <ul class="clean-list">
+              <li>Pays</li>
+              <li>Gestionnaire Achat</li>
+              <li>Nom du Compte</li>
+              <li>Activité</li>
+              <li>Enseigne(s)</li>
+              <li>Marque(s) info(s)</li>
+              <li>Statut Achat</li>
+              <li>Chiffre d’affaires</li>
+              <li>Nombre VO en stock</li>
+              <li>Date de la dernière activité</li>
+              <li>Site Web</li>
+              <li>Lex Jours sans interaction Vente</li>
+              <li>Heure de modification</li>
+              <li>Lex Jours sans interaction Achat</li>
+              <li>tmp_refresh_achat</li>
+              <li>Téléphone</li>
+              <li>Personne qui gère les ventes</li>
+              <li>Personne qui gère les achats</li>
+              <li>Modifié Par</li>
+              <li>Disposition</li>
+              <li>Adresse de facturation</li>
+              <li>Code postal de facturation</li>
+              <li>N° DE TVA INTRA</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Lecture UX</h3>
+            <ul class="clean-list">
+              <li>Le module reste structuré.</li>
+              <li>Le nombre de colonnes est important.</li>
+              <li>La logique achat et vente se superpose dans une même grille.</li>
+              <li>Le besoin de priorisation visuelle est encore plus fort que dans Leads.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="nouveaux-champs" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 02</span>
+          <h2>Nouveaux champs par rapport aux Leads</h2>
+          <p>
+            Par rapport au module Leads, le module Comptes introduit plusieurs champs supplémentaires qui montrent
+            une logique de suivi plus relationnelle et plus opérationnelle sur des entreprises déjà connues.
+          </p>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Champs spécifiquement nouveaux</h3>
+            <ul class="clean-list">
+              <li>Gestionnaire Achat</li>
+              <li>Nom du Compte</li>
+              <li>Statut Achat</li>
+              <li>Date de la dernière activité</li>
+              <li>Lex Jours sans interaction Vente</li>
+              <li>Heure de modification</li>
+              <li>Lex Jours sans interaction Achat</li>
+              <li>tmp_refresh_achat</li>
+              <li>Personne qui gère les ventes</li>
+              <li>Personne qui gère les achats</li>
+              <li>Modifié Par</li>
+              <li>Adresse de facturation</li>
+              <li>Code postal de facturation</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Lecture fonctionnelle</h3>
+            <p>
+              Ces ajouts confirment que le module Comptes ne sert pas seulement à l’identification d’une structure,
+              mais à son suivi commercial durable, à la répartition des responsabilités internes, et à une lecture
+              croisée entre achat, vente et qualité de mise à jour de la fiche.
+            </p>
+          </article>
+        </div>
+
+        <div class="insight-card">
+          <strong>Lecture métier :</strong> le module Comptes se positionne comme une fiche entreprise active,
+          plus mature que Leads, mais aussi plus exigeante en qualité de données et en lisibilité.
+        </div>
+      </section>
+
+      <section id="statuts" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 03</span>
+          <h2>Statut achat</h2>
+          <p>
+            Le champ Statut Achat repose sur une liste de valeurs métier spécifique au module Comptes.
+            Cette liste semble pensée pour qualifier la valeur ou la non-valeur du compte du point de vue achat.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Valeurs identifiées</h3>
+            <ul class="clean-list">
+              <li>NON INTERESSE avec potentiel</li>
+              <li>PETIT FAISEUR</li>
+              <li>TROP PETIT OU HORS CIBLE</li>
+              <li>INCOMPLET</li>
+              <li>FERME Blacklist et cessation</li>
+              <li>GROUPE décision ailleurs</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Lecture d’audit</h3>
+            <p>
+              Cette liste apporte une vraie nuance métier. Elle permet de distinguer les comptes non activables,
+              les comptes faibles, les comptes incomplets, et les comptes dépendants d’une décision extérieure.
+              Elle devra cependant être documentée précisément dans l’audit pour éviter toute ambiguïté d’usage.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="qualite-donnees" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 04</span>
+          <h2>Qualité des données</h2>
+          <p>
+            Plusieurs champs paraissent potentiellement utiles, mais certains sont aussi décrits comme peu alimentés
+            ou dépendants d’informations difficiles à obtenir côté client.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Champs vraisemblablement utiles</h3>
+            <ul class="clean-list">
+              <li>Nom du Compte</li>
+              <li>Pays</li>
+              <li>Gestionnaire Achat</li>
+              <li>Activité</li>
+              <li>Statut Achat</li>
+              <li>Téléphone</li>
+              <li>Date de la dernière activité</li>
+              <li>Modifié Par</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Champs probablement peu remplis</h3>
+            <ul class="clean-list">
+              <li>Personne qui gère les ventes</li>
+              <li>Personne qui gère les achats</li>
+              <li>Chiffre d’affaires, selon les cas</li>
+              <li>Enseigne(s), selon les comptes</li>
+              <li>Marque(s) info(s), selon le niveau d’enrichissement</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="long-card">
+          <h3>Point particulier</h3>
+          <p>
+            Les champs “Personne qui gère les ventes” et “Personne qui gère les achats” semblent désigner les responsables
+            côté client, mais ils sont généralement peu renseignés. Leur intérêt métier est réel, mais leur faible complétude
+            peut limiter leur valeur dans la vue liste si aucune stratégie d’enrichissement n’est mise en place.
+          </p>
+        </div>
+      </section>
+
+      <section id="filtres" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 05</span>
+          <h2>Filtres</h2>
+          <p>
+            Le module Comptes dispose de trois grandes catégories de filtres, ce qui le rend légèrement plus lisible
+            que Leads, mais laisse malgré tout une impression de système encore très dense.
+          </p>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Catégories présentes</h3>
+            <ul class="clean-list">
+              <li>Filtres définis par le système</li>
+              <li>Filtrer par champs</li>
+              <li>Filtrer par modules associés</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Lecture d’ensemble</h3>
+            <p>
+              Cette structure reste plus simple que celle du module Leads, mais elle devra être auditée sous l’angle
+              de l’usage réel : quels filtres sont utiles, lesquels sont ignorés, et lesquels complexifient inutilement la recherche.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="actions" class="report-section report-section--final">
+        <div class="section-intro">
+          <span class="section-kicker">Plan d’action</span>
+          <h2>Actions recommandées</h2>
+          <p>
+            Les premières recommandations doivent viser la hiérarchisation des colonnes, la clarification des statuts achat
+            et la réduction du bruit visuel dans la vue liste du module Comptes.
+          </p>
+        </div>
+
+        <div class="actions-grid">
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Prioriser les colonnes</h3>
+            <p>Mettre en avant les champs vraiment utiles au suivi quotidien et reléguer les champs secondaires.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Documenter le Statut Achat</h3>
+            <p>Clarifier la signification opérationnelle de chaque valeur pour harmoniser la saisie et l’interprétation.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Mesurer la complétude réelle</h3>
+            <p>Vérifier le taux de remplissage des champs responsables client, CA, marques et autres données sensibles.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Rationaliser les filtres</h3>
+            <p>Conserver une logique simple orientée recherche rapide et exploitation commerciale réelle.</p>
+          </article>
+        </div>
+
+        <a class="back-to-top" href="#top">Revenir en haut</a>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
