@@ -8,14 +8,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-
+  
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body class="page-audit">
+<body class="theme-dark page-audit">
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
   <header class="report-hero" id="top">
     <div class="report-hero__glow"></div>
     <div class="container report-hero__inner">
-      <a class="back-pill" href="../index.html">Retour au sommaire</a>
+      <a class="back-pill" href="../index.html">← Retour au sommaire</a>
 
       <div class="report-hero__meta">
         <span class="report-tag">Module 01</span>
@@ -24,7 +30,7 @@
 
       <h1>Accueil</h1>
       <p class="report-lead">
-        Analyse des différentes vues d’accueil Zoho CRM : vendeur, classique, activités, acheteurs, pilotage et manager,
+        Analyse des différentes vues d'accueil Zoho CRM : vendeur, classique, activités, acheteurs, pilotage et manager,
         avec focus sur la lisibilité, la disponibilité des données, les composants bloqués et la valeur réelle du dashboard.
       </p>
     </div>
@@ -53,8 +59,8 @@
           <span class="section-kicker">Lecture rapide</span>
           <h2>Synthèse</h2>
           <p>
-            Le module Accueil présente plusieurs vues selon les profils utilisateurs, mais l’ensemble donne une impression
-            de dashboard partiellement vide, parfois peu exploitable, et inégal selon les contextes d’usage.
+            Le module Accueil présente plusieurs vues selon les profils utilisateurs, mais l'ensemble donne une impression
+            de dashboard partiellement vide, parfois peu exploitable, et inégal selon les contextes d'usage.
           </p>
         </div>
 
@@ -62,13 +68,13 @@
           <article class="summary-card">
             <span class="summary-card__label">Constat principal</span>
             <h3>Trop de blocs sans données</h3>
-            <p>Une part importante des widgets remonte “Aucune donnée disponible” ou aucun enregistrement.</p>
+            <p>Une part importante des widgets remonte "Aucune donnée disponible" ou aucun enregistrement.</p>
           </article>
 
           <article class="summary-card">
             <span class="summary-card__label">Risque</span>
             <h3>Faible valeur du dashboard</h3>
-            <p>Un accueil peu alimenté réduit l’intérêt opérationnel du CRM pour les profils métier.</p>
+            <p>Un accueil peu alimenté réduit l'intérêt opérationnel du CRM pour les profils métier.</p>
           </article>
 
           <article class="summary-card">
@@ -85,7 +91,7 @@
           <h2>Vue vendeur</h2>
           <p>
             Cette vue contient des éléments métier utiles, mais plusieurs blocs clés apparaissent vides ou peu exploitables,
-            ce qui réduit fortement la valeur quotidienne de l’accueil vendeur.
+            ce qui réduit fortement la valeur quotidienne de l'accueil vendeur.
           </p>
         </div>
 
@@ -107,9 +113,9 @@
           </article>
 
           <article class="info-card">
-            <h3>Constats d’audit</h3>
+            <h3>Constats d'audit</h3>
             <ul class="clean-list">
-              <li>Présence répétée de messages “Aucune donnée disponible”.</li>
+              <li>Présence répétée de messages "Aucune donnée disponible".</li>
               <li>Le mode plein écran du document intégré ne fonctionne pas correctement.</li>
               <li>La lecture du document embarqué est inconfortable.</li>
               <li>Le document devient utile surtout après téléchargement.</li>
@@ -119,7 +125,7 @@
 
         <div class="insight-card insight-card--warning">
           <strong>Lecture métier :</strong> la vue vendeur affiche du contenu potentiellement intéressant,
-          mais l’absence de données et la mauvaise expérience documentaire dégradent l’usage réel.
+          mais l'absence de données et la mauvaise expérience documentaire dégradent l'usage réel.
         </div>
 
         <div class="capture-strip">
@@ -149,15 +155,15 @@
           <article class="note-panel">
             <h3>Éléments repérés</h3>
             <p>
-              Mes tâches ouvertes, tri, aucun enregistrement, total à 0, mes réunions aujourd’hui,
-              message d’autorisation refusée, pipeline par étape, données insuffisantes pour le graphique.
+              Mes tâches ouvertes, tri, aucun enregistrement, total à 0, mes réunions aujourd'hui,
+              message d'autorisation refusée, pipeline par étape, données insuffisantes pour le graphique.
             </p>
           </article>
 
           <article class="note-panel">
             <h3>Interprétation</h3>
             <p>
-              Cette vue donne l’impression d’un dashboard non fiabilisé : soit les rapports ne sont pas alimentés,
+              Cette vue donne l'impression d'un dashboard non fiabilisé : soit les rapports ne sont pas alimentés,
               soit les permissions ne sont pas alignées, soit les filtres de vue ne correspondent pas aux usages réels.
             </p>
           </article>
@@ -170,7 +176,7 @@
           <h2>Activités et tâches</h2>
           <p>
             La présence de nombreuses vues de filtrage est intéressante, mais leur valeur dépend entièrement de la qualité
-            des données et de la cohérence des règles d’affichage selon les profils.
+            des données et de la cohérence des règles d'affichage selon les profils.
           </p>
         </div>
 
@@ -189,8 +195,8 @@
             <h3>Tâches</h3>
             <ul class="clean-list">
               <li>Demain</li>
-              <li>Aujourd’hui</li>
-              <li>Aujourd’hui + en retard</li>
+              <li>Aujourd'hui</li>
+              <li>Aujourd'hui + en retard</li>
               <li>Mes tâches en retard</li>
               <li>Mes tâches fermées</li>
               <li>Mes tâches ouvertes</li>
@@ -220,7 +226,7 @@
 
         <div class="insight-card">
           <strong>Constat :</strong> la structure fonctionnelle paraît pertinente, mais la remontée réelle
-          d’informations n’est pas encore au niveau attendu pour un dashboard métier quotidien.
+          d'informations n'est pas encore au niveau attendu pour un dashboard métier quotidien.
         </div>
       </section>
 
@@ -236,7 +242,7 @@
         <div class="timeline-list">
           <div class="timeline-item">
             <h3>Appels prospects</h3>
-            <p>Temps et nombre d’appel aujourd’hui pour les prospects.</p>
+            <p>Temps et nombre d'appel aujourd'hui pour les prospects.</p>
           </div>
           <div class="timeline-item">
             <h3>Tâches prospects</h3>
@@ -244,11 +250,11 @@
           </div>
           <div class="timeline-item">
             <h3>Appels clients</h3>
-            <p>Durée et nombre d’appel aujourd’hui pour les clients.</p>
+            <p>Durée et nombre d'appel aujourd'hui pour les clients.</p>
           </div>
           <div class="timeline-item">
             <h3>Lecture quotidienne</h3>
-            <p>Noms des clients appelés, enseignes appelées, types de clients appelés aujourd’hui.</p>
+            <p>Noms des clients appelés, enseignes appelées, types de clients appelés aujourd'hui.</p>
           </div>
         </div>
       </section>
@@ -259,7 +265,7 @@
           <h2>Vue manager</h2>
           <p>
             La vue manager est dense, riche en indicateurs, et potentiellement très utile, mais elle doit être priorisée
-            dans l’audit pour distinguer les indicateurs fiables des widgets décoratifs ou vides.
+            dans l'audit pour distinguer les indicateurs fiables des widgets décoratifs ou vides.
           </p>
         </div>
 
@@ -274,14 +280,14 @@
         </div>
 
         <div class="insight-card insight-card--accent">
-          <strong>Priorité d’audit :</strong> cette vue doit être revue widget par widget pour identifier
+          <strong>Priorité d'audit :</strong> cette vue doit être revue widget par widget pour identifier
           les rapports utiles, les rapports faux, les rapports vides, et les composants à supprimer.
         </div>
       </section>
 
       <section id="actions" class="report-section report-section--final">
         <div class="section-intro">
-          <span class="section-kicker">Plan d’action</span>
+          <span class="section-kicker">Plan d'action</span>
           <h2>Actions recommandées</h2>
           <p>
             Les premières corrections doivent viser la fiabilité des données, la disponibilité réelle des widgets
@@ -293,31 +299,33 @@
           <article class="action-card action-card--high">
             <span class="priority-badge">Haute</span>
             <h3>Vérifier les widgets vides</h3>
-            <p>Identifier pourquoi autant de composants affichent zéro donnée ou “Aucune donnée disponible”.</p>
+            <p>Identifier pourquoi autant de composants affichent zéro donnée ou "Aucune donnée disponible".</p>
           </article>
 
           <article class="action-card action-card--high">
             <span class="priority-badge">Haute</span>
             <h3>Contrôler les permissions</h3>
-            <p>Analyser les composants bloqués comme “Mes réunions aujourd’hui” et les modules masqués.</p>
+            <p>Analyser les composants bloqués comme "Mes réunions aujourd'hui" et les modules masqués.</p>
           </article>
 
           <article class="action-card action-card--medium">
             <span class="priority-badge">Moyenne</span>
             <h3>Revoir les rapports sources</h3>
-            <p>Contrôler les rapports alimentant les graphiques et les dashboards d’accueil.</p>
+            <p>Contrôler les rapports alimentant les graphiques et les dashboards d'accueil.</p>
           </article>
 
           <article class="action-card action-card--medium">
             <span class="priority-badge">Moyenne</span>
             <h3>Améliorer la lecture documentaire</h3>
-            <p>Corriger l’expérience d’aperçu des documents WorkDrive et l’usage du plein écran.</p>
+            <p>Corriger l'expérience d'aperçu des documents WorkDrive et l'usage du plein écran.</p>
           </article>
         </div>
 
-        <a class="back-to-top" href="#top">Revenir en haut</a>
+        <a class="back-to-top" href="#top">Revenir en haut ↗</a>
       </section>
     </section>
   </main>
+
+  <script src="../theme.js"></script>
 </body>
 </html>

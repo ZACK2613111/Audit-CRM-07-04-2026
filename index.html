@@ -1,131 +1,257 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Audit CRM - Auto Declic</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Zoho CRM · Auto Declic 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" href="./Auto-declic-logo.png">
 </head>
-<body>
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <img src="./Auto-Declic-logo.png" alt="Logo Auto Declic" class="brand-logo" />
-      <p class="eyebrow">Audit Zoho CRM</p>
-      <h1>Rapport d’audit CRM Auto Declic</h1>
-      <p class="hero-text">
-        Tableau des matières, navigation par module, constats, captures et recommandations.
-      </p>
-      <a class="hero-button" href="./html/accueil.html">Commencer l’audit</a>
+<body class="theme-dark">
+  <div class="ad-root">
+    <!-- THEME TOGGLE -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+      <span class="sun">☀️</span>
+      <span class="moon">🌙</span>
+    </button>
+
+    <div class="conf-banner">
+      🔒 Document confidentiel — Usage interne exclusif — Auto Declic © 2025
     </div>
-  </header>
 
-  <main class="container">
-    <section class="toc">
-      <div class="section-heading">
-        <p class="section-kicker">Navigation</p>
-        <h2>Table des matières</h2>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="logo-wrap">
+        <img src="./Auto-declic-logo.png" alt="Auto Declic" class="logo-dark">
+        <img src="./Auto-declic-logo.png" alt="Auto Declic" class="logo-light">
       </div>
+      <div class="eyebrow-pill">Audit Zoho CRM · 2025</div>
+      <h1>Rapport d'audit<br><span>CRM Auto Declic</span></h1>
+      <p class="hero-sub">
+        Analyse complète de 20 modules, constats terrain, captures et recommandations actionnables pour scaler vos opérations.
+      </p>
+      <div class="conf-note">
+        <div class="lock-icon"></div>
+        Ce document est strictement confidentiel. Ne pas diffuser en dehors de l'équipe Auto Declic.
+      </div>
+      <br>
+      <a class="cta-btn" href="./html/accueil.html">Démarrer l'audit ↗</a>
+    </section>
 
-      <div class="card-grid">
-        <a class="audit-card" href="./html/accueil.html">
-          <span class="audit-number">01</span>
-          <h3>Accueil</h3>
-          <p>Vue vendeur, vue classique, activités, anomalies d’affichage et widgets.</p>
-        </a>
-
-        <a class="audit-card" href="./html/leads.html">
-          <span class="audit-number">02</span>
-          <h3>Leads</h3>
-          <p>Structure, qualité des données, filtres, doublons et exploitation commerciale.</p>
-        </a>
-
-        <a class="audit-card" href="./html/contacts.html">
-          <span class="audit-number">03</span>
-          <h3>Contacts</h3>
-          <p>Complétude des fiches, liens avec comptes et cohérence des informations.</p>
-        </a>
-
-        <a class="audit-card" href="./html/comptes.html">
-          <span class="audit-number">04</span>
-          <h3>Comptes</h3>
-          <p>Qualité des comptes, champs critiques, statuts, données légales et usage.</p>
-        </a>
-
-        <a class="audit-card" href="./html/ventes.html">
-          <span class="audit-number">05</span>
-          <h3>Ventes</h3>
-          <p>Pipeline, affaires, opportunités, suivi commercial et états de progression.</p>
-        </a>
-
-        <a class="audit-card" href="./html/activites.html">
-          <span class="audit-number">06</span>
-          <h3>Activités</h3>
-          <p>Tâches, appels, réunions, tri, échéances et suivi quotidien.</p>
-        </a>
-
-        <a class="audit-card" href="./html/modules-personnalises.html">
-          <span class="audit-number">07</span>
-          <h3>Modules personnalisés</h3>
-          <p>Acheteurs, vendeurs, Pappers, LeadChain et modules spécifiques métier.</p>
-        </a>
-
-        <a class="audit-card" href="./html/workflows.html">
-          <span class="audit-number">08</span>
-          <h3>Workflows</h3>
-          <p>Automatisations, règles métier, alertes, dépendances et cohérence.</p>
-        </a>
-
-        <a class="audit-card" href="./html/utilisateurs-permissions.html">
-          <span class="audit-number">09</span>
-          <h3>Utilisateurs & permissions</h3>
-          <p>Profils, rôles, composants masqués, sécurité d’accès et visibilité.</p>
-        </a>
-
-        <a class="audit-card" href="./html/audit-log-securite.html">
-          <span class="audit-number">10</span>
-          <h3>Audit log & sécurité</h3>
-          <p>Traçabilité, journaux, sécurité, administration et contrôle des actions.</p>
-        </a>
-
-        <a class="audit-card" href="./html/rapports.html">
-  <span class="audit-number">11</span>
-  <h3>Rapports</h3>
-  <p>Qualité, nomenclature, utilisation, permissions et maintenance des rapports CRM.</p>
-</a>
+    <!-- STATS -->
+    <section class="stats-section">
+      <p class="stats-label">Tout ça, rendu possible grâce à notre CRM</p>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-num">50 000+</div>
+          <div class="stat-desc">Véhicules vendus</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">300+</div>
+          <div class="stat-desc">Véhicules / mois</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">2 000+</div>
+          <div class="stat-desc">Clients actifs</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">2005</div>
+          <div class="stat-desc">Depuis</div>
+        </div>
       </div>
     </section>
 
-    
-  </main>
+    <!-- PITCH CRM -->
+    <section class="pitch-section">
+      <p class="kicker">Pourquoi cet audit</p>
+      <h2>Expert automobile B2B depuis 2005 —<br>notre CRM, c'est le cœur du réacteur.</h2>
+      <p>
+        Depuis 2005, Auto Declic est la plateforme de référence pour les professionnels de l'automobile : achats, ventes, logistique, immatriculation, COC. 50 000 véhicules vendus, 2 000+ clients, 300 unités par mois. Tout ça, on l'a construit grâce à Zoho CRM. Cet audit est là pour s'assurer que le CRM grandit aussi vite qu'Auto Declic.
+      </p>
+    </section>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <h2>WITH AUTO DECLIC</h2>
-      <div class="footer-slogan">
-        <span>SAVE YOUR TIME</span>
-        <span>SAVE YOUR MONEY</span>
+    <!-- MODULES -->
+    <section class="modules-section">
+      <div class="modules-header">
+        <h2>Modules audités</h2>
+        <span class="modules-count">20 sections</span>
       </div>
-    </div>
+      <div class="card-grid">
+        <a class="m-card" href="./html/accueil.html">
+          <div class="m-num">01</div>
+          <h3>Accueil</h3>
+          <p>Vue vendeur, vue classique, activités, anomalies et widgets.</p>
+        </a>
+        <a class="m-card" href="./html/leads.html">
+          <div class="m-num">02</div>
+          <h3>Leads</h3>
+          <p>Structure, qualité des données, doublons, exploitation commerciale.</p>
+        </a>
+        <a class="m-card" href="./html/contacts.html">
+          <div class="m-num">03</div>
+          <h3>Contacts</h3>
+          <p>Complétude des fiches, liens comptes, cohérence des informations.</p>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">03b</div>
+          <h3>Contacts internes</h3>
+          <p>Banques, partenaires, prestataires — au-delà du business client.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="./html/comptes.html">
+          <div class="m-num">04</div>
+          <h3>Comptes</h3>
+          <p>Données légales, statuts, champs critiques et usage réel.</p>
+        </a>
+        <a class="m-card" href="./html/ventes.html">
+          <div class="m-num">05</div>
+          <h3>Ventes</h3>
+          <p>Pipeline, affaires, opportunités et états de progression.</p>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">05b</div>
+          <h3>Achats</h3>
+          <p>Sourcing véhicules, partenaires fournisseurs, suivi des acquisitions.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="./html/activites.html">
+          <div class="m-num">06</div>
+          <h3>Activités & Tâches</h3>
+          <p>Tâches, appels, réunions, tri, échéances et suivi quotidien.</p>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">06b</div>
+          <h3>Appels (AirCall)</h3>
+          <p>Intégration AirCall — à lier avec les activités Zoho.</p>
+          <span class="tag tag-ext">Intégration</span>
+        </a>
+        <a class="m-card" href="./html/modules-personnalises.html">
+          <div class="m-num">07</div>
+          <h3>Modules personnalisés</h3>
+          <p>Acheteurs, vendeurs, Pappers, LeadChain et métier.</p>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07b</div>
+          <h3>Stocks</h3>
+          <p>Parc véhicules, état des unités disponibles, valorisation.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07c</div>
+          <h3>Extracts stocks</h3>
+          <p>Exports de stock, synchronisation avec autodeclic.shop.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07d</div>
+          <h3>Parcs</h3>
+          <p>Gestion des emplacements physiques et répartition des véhicules.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07e</div>
+          <h3>Groupes</h3>
+          <p>Organisation des clients et partenaires par groupe d'appartenance.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07f</div>
+          <h3>Annuaire transporteurs</h3>
+          <p>Base transporteurs, tarifs, zones et délais de livraison.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">07g</div>
+          <h3>Projets</h3>
+          <p>Suivi des projets internes liés aux clients et aux opérations.</p>
+          <span class="tag tag-new">Nouveau</span>
+        </a>
+        <a class="m-card" href="./html/workflows.html">
+          <div class="m-num">08</div>
+          <h3>Workflows</h3>
+          <p>Automatisations, règles métier, alertes, dépendances.</p>
+        </a>
+        <a class="m-card" href="./html/utilisateurs-permissions.html">
+          <div class="m-num">09</div>
+          <h3>Utilisateurs & permissions</h3>
+          <p>Profils, rôles, sécurité d'accès et visibilité des données.</p>
+        </a>
+        <a class="m-card" href="./html/audit-log-securite.html">
+          <div class="m-num">10</div>
+          <h3>Audit log & sécurité</h3>
+          <p>Traçabilité, journaux, administration et contrôle des actions.</p>
+        </a>
+        <a class="m-card" href="./html/rapports.html">
+          <div class="m-num">11</div>
+          <h3>Rapports</h3>
+          <p>Qualité, nomenclature, utilisation, permissions et maintenance.</p>
+        </a>
+        <a class="m-card" href="#">
+          <div class="m-num">12</div>
+          <h3>Profil & Extra features</h3>
+          <p>Configuration utilisateur, intégrations bonus et modules avancés.</p>
+          <span class="tag tag-ext">Config</span>
+        </a>
+      </div>
+    </section>
 
-    <div class="container footer-grid">
-      <div class="footer-block">
-        <h3>Contact</h3>
-        <p><a href="tel:+33489788109">+33 4 89 78 81 09</a></p>
-        <p><a href="mailto:contact@autodeclic.pro">contact@autodeclic.pro</a></p>
-        <p>73 rue du Thoron<br />83600 Fréjus</p>
-      </div>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">Auto Declic</div>
+          <div class="footer-brand-tag">Your B2B automotive partner of excellence</div>
+        </div>
 
-      <div class="footer-block">
-        <h3>Our website</h3>
-        <p><a href="https://autodeclic.shop" target="_blank" rel="noopener noreferrer">autodeclic.shop</a></p>
-      </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Téléphone</h4>
+            <div class="footer-contact-item">
+              <div class="contact-dot"></div>
+              <a href="tel:+33489788109">+33 4 89 78 81 09</a>
+            </div>
+          </div>
 
-      <div class="footer-block">
-        <h3>Follow us !</h3>
-        <p><a href="https://www.instagram.com/autodeclic" target="_blank" rel="noopener noreferrer">/autodeclic</a></p>
+          <div class="footer-col">
+            <h4>Email</h4>
+            <div class="footer-contact-item">
+              <div class="contact-dot"></div>
+              <a href="mailto:contact@autodeclic.pro">contact@autodeclic.pro</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Adresse</h4>
+            <div class="footer-contact-item">
+              <div class="contact-dot"></div>
+              <span>73 rue du Thoron<br>83600 Fréjus, France</span>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Liens</h4>
+            <div class="footer-contact-item">
+              <div class="contact-dot"></div>
+              <a href="https://www.autodeclic.shop/" target="_blank">autodeclic.shop ↗</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="contact-dot"></div>
+              <a href="https://www.linkedin.com/company/autodeclic" target="_blank">LinkedIn ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span class="footer-bottom-left">© 2025 Auto Declic — Tous droits réservés</span>
+          <span class="conf-badge"><span class="conf-dot"></span>Document confidentiel</span>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
+
+  <script src="./index.js"></script>
 </body>
 </html>
