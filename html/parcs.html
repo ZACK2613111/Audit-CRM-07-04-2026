@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcs - Audit CRM Auto Declic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../Auto-declic-logo.png">
+  <link rel="stylesheet" href="./css/parcs.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="theme-dark page-audit">
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <header class="report-hero" id="top">
+    <div class="report-hero__glow"></div>
+    <div class="container report-hero__inner">
+      <a class="back-pill" href="../index.html">← Retour au sommaire</a>
+
+      <div class="report-hero__meta">
+        <span class="report-tag">Module 06</span>
+        <span class="report-tag report-tag--soft">Audit Zoho CRM</span>
+      </div>
+
+      <h1>Parcs</h1>
+      <p class="report-lead">
+        Analyse du module Parc (CustomModule6) : structure épurée du tableau, qualité des données de contact,
+        qualification fonctionnelle spécifique au secteur logistique/transport, et potentiel d'exploitation
+        opérationnelle pour la coordination des enlèvements et livraisons.
+      </p>
+    </div>
+  </header>
+
+  <main class="container report-layout">
+    <aside class="toc">
+      <div class="toc-card">
+        <p class="toc-label">Sur cette page</p>
+        <nav class="toc-links">
+          <a href="#synthese">Synthèse</a>
+          <a href="#tableau">Tableau principal</a>
+          <a href="#fonction">Fonction Parc</a>
+          <a href="#contacts">Qualité contacts</a>
+          <a href="#geoloc">Géolocalisation</a>
+          <a href="#actions">Actions recommandées</a>
+        </nav>
+      </div>
+    </aside>
+
+    <section class="report-content">
+      <section id="synthese" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Lecture rapide</span>
+          <h2>Synthèse</h2>
+          <p>
+            Le module Parc présente une structure volontairement épurée avec seulement 9 colonnes essentielles,
+            centrées sur l'identification des parcs, leurs contacts responsables et leur localisation.
+            C'est un module opérationnel bien pensé pour le secteur logistique.
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-card__label">Constat principal</span>
+            <h3>Structure épurée efficace</h3>
+            <p>9 colonnes uniquement, focus opérationnel clair sur les contacts et la géolocalisation.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Atout</span>
+            <h3>Qualification fonctionnelle</h3>
+            <p>11 fonctions spécifiques au secteur (Annonce Parc, Responsable Exploitation, Service Litiges...).</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">UX</span>
+            <h3>Lecture immédiate</h3>
+            <p>Tableau simple et actionnable, parfaitement adapté à un usage terrain logistique.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tableau" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 01</span>
+          <h2>Tableau principal</h2>
+          <p>
+            Le tableau Parc est remarquablement épuré avec seulement 9 colonnes essentielles,
+            parfaitement adaptées à l'usage opérationnel logistique (coordination enlèvements, contacts terrain).
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Colonnes du tableau (9)</h3>
+            <ul class="clean-list">
+              <li><strong>Parc Nom</strong> — Identifiant principal du site</li>
+              <li>Nom / Prénom — Contact principal</li>
+              <li><strong>Fonction</strong> — Rôle logistique spécifique</li>
+              <li><strong>E-mail</strong> — Communication primaire</li>
+              <li><strong>Téléphone</strong> — Coordination terrain</li>
+              <li>Portable — Contact mobile</li>
+              <li>Code postal — Localisation précise</li>
+              <li>Ville — Zone géographique</li>
+              <li><strong>Pays d'enlèvement</strong> — Logistique internationale</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Lecture opérationnelle</h3>
+            <ul class="clean-list">
+              <li>Structure minimaliste et efficace</li>
+              <li>Tous les éléments nécessaires à la coordination logistique</li>
+              <li>Contact + localisation + communication = parfait pour terrain</li>
+              <li>Aucune surcharge inutile contrairement aux autres modules</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card insight-card--success">
+          <strong>Point fort majeur :</strong> Contrairement aux autres modules surchargés,
+          Parc est parfaitement calibré pour un usage opérationnel terrain. C'est le bon modèle !
+        </div>
+      </section>
+
+      <section id="fonction" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 02</span>
+          <h2>Fonction Parc (11 valeurs)</h2>
+          <p>
+            La qualification fonctionnelle est remarquablement précise et adaptée au secteur logistique/transport.
+            Cette liste reflète une vraie connaissance métier des rôles opérationnels.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Liste complète des fonctions</h3>
+            <ul class="clean-list">
+              <li>None</li>
+              <li>Annonce Parc</li>
+              <li>Assistante Logistique</li>
+              <li>Déblocage</li>
+              <li>Directeur</li>
+              <li>Mise à disposition</li>
+              <li>Responsable commercial</li>
+              <li>Responsable exploitation</li>
+              <li>Responsable Parc</li>
+              <li>Services Clients</li>
+              <li>Service Litiges</li>
+              <li>Stockage</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Lecture métier</h3>
+            <ul class="clean-list">
+              <li>Terminologie 100% secteur logistique/transport</li>
+              <li>Rôles opérationnels précis (Déblocage, Mise à disposition)</li>
+              <li>Hiérarchie claire (Directeur → Responsable → Service)</li>
+              <li>Complétude probable élevée grâce à la simplicité</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card insight-card--accent">
+          <strong>Modèle à répliquer :</strong> Cette liste de fonctions est parfaite.
+          Elle doit servir de référence pour tous les modules métiers du CRM.
+        </div>
+      </section>
+
+      <section id="contacts" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 03</span>
+          <h2>Qualité des contacts</h2>
+          <p>
+            Les 5 colonnes dédiées aux contacts (Nom/Prénom, Fonction, Email, Téléphone, Portable)
+            forment un bloc cohérent et actionnable pour la coordination opérationnelle.
+          </p>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Champs contacts</h3>
+            <ul class="clean-list">
+              <li><strong>Nom / Prénom</strong> — Identification claire</li>
+              <li><strong>Fonction</strong> — 11 valeurs métiers précises</li>
+              <li><strong>E-mail</strong> — Communication écrite</li>
+              <li><strong>Téléphone</strong> — Coordination immédiate</li>
+              <li><strong>Portable</strong> — Contact terrain mobile</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Analyse qualité</h3>
+            <p>
+              Structure idéale pour l'opérationnel : contact identifié + rôle précis + 2 numéros de téléphone.
+              Probablement très bien complété car usage terrain critique.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="geoloc" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Vue 04</span>
+          <h2>Géolocalisation</h2>
+          <p>
+            Les 3 dernières colonnes forment un bloc géographique précis, essentiel pour la logistique.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="info-card">
+            <h3>Champs géographiques</h3>
+            <ul class="clean-list">
+              <li><strong>Code postal</strong> — Précision livraison</li>
+              <li><strong>Ville</strong> — Zone d'enlèvement</li>
+              <li><strong>Pays d'enlèvement</strong> — Logistique internationale</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Potentiel opérationnel</h3>
+            <ul class="clean-list">
+              <li>Tri par proximité possible</li>
+              <li>Filtres géographiques efficaces</li>
+              <li>Cartographie envisageable</li>
+              <li>Complétude probablement élevée</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card">
+          <strong>Recommandation :</strong> Ajouter une vue carte pour visualiser les parcs
+          par proximité + statut contact + capacité opérationnelle.
+        </div>
+      </section>
+
+      <section id="actions" class="report-section report-section--final">
+        <div class="section-intro">
+          <span class="section-kicker">Plan d'action</span>
+          <h2>Actions recommandées</h2>
+        </div>
+
+        <div class="actions-grid">
+          <article class="action-card action-card--low">
+            <span class="priority-badge">Basse</span>
+            <h3>Maintenir la simplicité</h3>
+            <p>Ne pas ajouter de colonnes. Ce module est un modèle de lisibilité.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Vérifier complétude terrain</h3>
+            <p>Contrôler que Portable + Pays enlèvement sont systématiquement remplis.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Dupliquer ce modèle</h3>
+            <p>Appliquer cette structure épurée aux autres modules opérationnels.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Vues avancées</h3>
+            <p>Ajouter carte géographique + tri par proximité + filtre Fonction.</p>
+          </article>
+        </div>
+
+        <a class="back-to-top" href="#top">Revenir en haut ↗</a>
+      </section>
+    </section>
+  </main>
+
+  <script src="../index.js"></script>
+</body>
+</html>
