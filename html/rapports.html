@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapports - Audit CRM Auto Declic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="page-audit">
+  <header class="report-hero page-hero--small" id="top">
+    <div class="container">
+      <a class="back-pill" href="../index.html">← Retour au sommaire</a>
+      <div class="report-hero__meta">
+        <span class="report-tag">Module 11</span>
+        <span class="report-tag report-tag--soft">Audit Zoho CRM</span>
+      </div>
+      <h1>Rapports</h1>
+      <p class="report-lead">
+        Analyse de l’existant : trop nombreux, nomenclature incohérente, certains vides, utilisation dans les dashboards,
+        qualité des données et maintenance des rapports critiques.
+      </p>
+    </div>
+  </header>
+
+  <main class="container report-layout">
+    <aside class="toc">
+      <div class="toc-card">
+        <p class="toc-label">Sur cette page</p>
+        <nav class="toc-links">
+          <a href="#synthese">Synthèse</a>
+          <a href="#inventaire">Inventaire</a>
+          <a href="#exemple">Exemple détaillé</a>
+          <a href="#problemes">Problèmes identifiés</a>
+          <a href="#actions">Actions recommandées</a>
+        </nav>
+      </div>
+    </aside>
+
+    <section class="report-content">
+      <section id="synthese" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Lecture rapide</span>
+          <h2>Synthèse de l’audit</h2>
+          <p>
+            Les rapports représentent un atout stratégique du CRM, mais l’état actuel révèle des problèmes de gouvernance :
+            trop nombreux, nomenclature anarchique, certains vides ou obsolètes, maintenance non assurée.
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-card__label">Constat principal</span>
+            <h3>Manque de gouvernance</h3>
+            <p>Trop de rapports, noms incohérents, certains vides ou inutilisés.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Risque</span>
+            <h3>Perte de fiabilité analytique</h3>
+            <p>Les dashboards d’accueil deviennent inexploitables si leurs rapports sources sont défaillants.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-card__label">Opportunité</span>
+            <h3>Potentiel de pilotage</h3>
+            <p>Des rapports comme POTCOMMUN montrent la richesse possible si bien gérés.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="inventaire" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Cartographie</span>
+          <h2>Inventaire des rapports</h2>
+          <p>
+            La liste révèle une grande diversité de rapports, mais aussi une organisation perfectible.
+          </p>
+        </div>
+
+        <div class="capture-strip">
+          <figure class="capture-large">
+            <img src="../images/08-workflows-automatisations/rapports-liste.png" alt="Liste complète des rapports Zoho CRM" />
+            <figcaption>Filtre “Tous les rapports” — densité et diversité des rapports existants.</figcaption>
+          </figure>
+        </div>
+
+        <div class="two-column-notes">
+          <article class="note-panel">
+            <h3>Catégories métier identifiées</h3>
+            <ul class="clean-list">
+              <li>Rapports Leads</li>
+              <li>Rapports Activité</li>
+              <li>Rapports Campagne</li>
+              <li>Rapports Ticket et solution</li>
+              <li>Rapports Prévision</li>
+              <li>Rapports Produit</li>
+              <li>Rapports Fournisseur</li>
+              <li>Présentation Commerciale</li>
+              <li>Bon de commande</li>
+              <li>Facture</li>
+              <li>Mesures des ventes</li>
+              <li>Rapports e-mail</li>
+              <li>Réunion Reports</li>
+              <li>Rapports clients</li>
+              <li>Analyse</li>
+              <li>PHRF</li>
+            </ul>
+          </article>
+
+          <article class="note-panel">
+            <h3>Rapports nommés</h3>
+            <ul class="clean-list">
+              <li>Pilotage Prospects Kathleen</li>
+              <li>Air Call</li>
+              <li>Recherches</li>
+              <li>Pilotage Prospect Fournisseurs Hervé</li>
+              <li>Rapport Ugu r</li>
+              <li>Rapport contacts Outlook</li>
+              <li>Rapport Parc</li>
+              <li>Rapports Chris</li>
+              <li>Pierre Stats</li>
+              <li>Acheteurs</li>
+              <li>Akrolia</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="insight-card insight-card--warning">
+          <strong>Problème de nomenclature :</strong> les noms de rapports ne suivent aucune convention commune,
+          ce qui complique la recherche et l’identification des rapports utiles.
+        </div>
+      </section>
+
+      <section id="exemple" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Cas concret</span>
+          <h2>Exemple détaillé : POTCOMMUN 2026 FR BE LUX v2</h2>
+          <p>
+            Ce rapport avec 147 enregistrements illustre la richesse possible des rapports Zoho CRM quand bien construits.
+          </p>
+        </div>
+
+        <div class="example-table">
+          <h3>Colonnes du rapport (147 enregistrements)</h3>
+          <ul class="columns-list">
+            <li>Pays</li>
+            <li>Nom du Compte</li>
+            <li>Nom de Contact</li>
+            <li>Balise</li>
+            <li>Gestionnaire du Contact</li>
+            <li>Gestionnaire Vente</li>
+            <li>Gestionnaire Achat</li>
+            <li>Activité</li>
+            <li>Enseigne(s)</li>
+            <li>Marque(s) info(s)</li>
+            <li>Téléphone (Contacts)</li>
+            <li>Portable</li>
+            <li>Dernier Appel fait le</li>
+            <li>0 Km OK</li>
+            <li>Import OK</li>
+            <li>E-mail (Contacts)</li>
+            <li>Dernier envoi mailing IA</li>
+          </ul>
+        </div>
+
+        <div class="insight-card insight-card--success">
+          <strong>Point fort :</strong> ce rapport montre une bonne articulation métier entre comptes, contacts,
+          gestionnaires, activités, et indicateurs de suivi (appels, mails, km, import).
+        </div>
+
+        <div class="capture-strip">
+          <figure class="capture-large">
+            <img src="../images/08-workflows-automatisations/rapports-potcommun.png" alt="Exemple de rapport POTCOMMUN avec 147 enregistrements" />
+            <figcaption>Rapport POTCOMMUN 2026 FR BE LUX v2 — exemple de rapport riche et métier.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="problemes" class="report-section">
+        <div class="section-intro">
+          <span class="section-kicker">Failles</span>
+          <h2>Problèmes identifiés</h2>
+          <p>
+            L’état actuel des rapports impacte directement la qualité des dashboards et la fiabilité du pilotage.
+          </p>
+        </div>
+
+        <div class="problems-grid">
+          <article class="problem-card problem-card--critical">
+            <span class="severity-badge">Critique</span>
+            <h3>Rapports vides</h3>
+            <p>Certains liens `/tab/Reports/6643904000281400167` mènent à des rapports sans données exploitables.</p>
+          </article>
+
+          <article class="problem-card problem-card--high">
+            <span class="severity-badge">Haute</span>
+            <h3>Nomenclature incohérente</h3>
+            <p>Noms comme “Rapport Ugu r”, “Rapports Chris”, “Akrolia” compliquent la recherche et la maintenance.</p>
+          </article>
+
+          <article class="problem-card problem-card--high">
+            <span class="severity-badge">Haute</span>
+            <h3>Trop nombreux</h3>
+            <p>La liste longue et non filtrée crée de la confusion et potentiellement des doublons.</p>
+          </article>
+
+          <article class="problem-card problem-card--medium">
+            <span class="severity-badge">Moyenne</span>
+            <h3>Filtrage insuffisant</h3>
+            <p>Le filtre “Tous les rapports” ne permet pas une recherche rapide par mot-clé ou date.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="actions" class="report-section report-section--final">
+        <div class="section-intro">
+          <span class="section-kicker">Plan d’action</span>
+          <h2>Actions recommandées</h2>
+          <p>
+            Prioriser la gouvernance des rapports pour sécuriser l’analytique et le pilotage métier.
+          </p>
+        </div>
+
+        <div class="actions-grid">
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Inventaire complet</h3>
+            <p>Lister tous les rapports actifs, leur propriétaire, leur fréquence de mise à jour, leur usage réel.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Nomenclature standardisée</h3>
+            <p>Adopter une convention : [Module]-[Objectif]-[Période]-[Responsable]. Exemple : Comptes-POTCOMMUN-2026-FRBE-LUX.</p>
+          </article>
+
+          <article class="action-card action-card--high">
+            <span class="priority-badge">Haute</span>
+            <h3>Nettoyage des rapports vides</h3>
+            <p>Supprimer ou archiver les rapports systématiquement vides ou obsolètes.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Documentation des rapports critiques</h3>
+            <p>Documenter les rapports alimentant les dashboards d’accueil et leur fréquence de rafraîchissement.</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Moyenne</span>
+            <h3>Amélioration du filtrage</h3>
+            <p>Améliorer la recherche et les tags pour identifier rapidement les rapports par usage ou responsable.</p>
+          </article>
+
+          <article class="action-card action-card--low">
+            <span class="priority-badge">Faible</span>
+            <h3>Plan de maintenance</h3>
+            <p>Planifier un audit trimestriel des rapports et leur usage réel dans le CRM.</p>
+          </article>
+        </div>
+
+        <div class="next-steps">
+          <h3>Prochaines étapes</h3>
+          <p>
+            Valider avec l’équipe commerciale quels sont les 10 rapports vraiment critiques,
+            puis nettoyer le reste selon cette priorisation.
+          </p>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
