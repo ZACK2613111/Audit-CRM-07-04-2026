@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Processus Comptes — Suivi complet</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #111;
+    padding: 32px 40px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 16px;
+  }
+  header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+  header p { font-size: 11px; color: #555; margin-top: 4px; }
+  .diagram-wrap { display: flex; justify-content: center; }
+  .legend {
+    margin-top: 28px;
+    border-top: 1px solid #bbb;
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+  }
+  .legend-title { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; width: 100%; margin-bottom: 2px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+  .lbox { width: 22px; height: 14px; border: 1.5px solid #111; flex-shrink: 0; }
+  @media print {
+    body { padding: 16px 20px; }
+    @page { size: A4 portrait; margin: 1.2cm; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Processus Comptes — Du compte créé au suivi</h1>
+  <p>Schéma de suivi et segmentation — Version imprimable</p>
+</header>
+
+<div class="diagram-wrap">
+<svg width="720" height="1060" viewBox="0 0 720 1060" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="a" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#111"/>
+  </marker>
+  <marker id="ad" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#777"/>
+  </marker>
+</defs>
+<style>
+  text { font-family:'Segoe UI',Arial,sans-serif; }
+  .L  { font-size:11px; font-weight:700; text-anchor:middle; fill:#111; }
+  .S  { font-size:10px; text-anchor:middle; fill:#333; }
+  .E  { font-size:9px;  text-anchor:middle; fill:#333; }
+  .W  { font-size:11px; font-weight:700; text-anchor:middle; fill:#fff; }
+  .Ws { font-size:9px;  text-anchor:middle; fill:#bbb; }
+  .Ph { font-size:9px;  font-weight:700; fill:#aaa; text-anchor:middle; }
+  .ln { stroke:#111; stroke-width:1.5; fill:none; marker-end:url(#a); }
+  .ld { stroke:#777; stroke-width:1;   fill:none; stroke-dasharray:5,3; marker-end:url(#ad); }
+  .bx { fill:#fff; stroke:#111; stroke-width:1.5; }
+  .bd { fill:#111; stroke:#111; stroke-width:1.5; }
+  .bg { fill:#e8e8e8; stroke:#111; stroke-width:1.5; }
+  .bm { fill:#444; stroke:#111; stroke-width:1.5; }
+</style>
+
+<!-- Phase labels -->
+<line x1="28" y1="20" x2="28" y2="1030" stroke="#e0e0e0" stroke-width="0.8"/>
+<text x="16" y="60"  class="Ph" transform="rotate(-90,16,60)">CRÉATION</text>
+<text x="16" y="195" class="Ph" transform="rotate(-90,16,195)">PROFIL</text>
+<text x="16" y="380" class="Ph" transform="rotate(-90,16,380)">SUIVI</text>
+<text x="16" y="540" class="Ph" transform="rotate(-90,16,540)">SEGMENTATION</text>
+<text x="16" y="730" class="Ph" transform="rotate(-90,16,730)">ACTIONS</text>
+<text x="16" y="930" class="Ph" transform="rotate(-90,16,930)">INACTIF</text>
+
+<!-- ══ COMPTE CRÉÉ ══ -->
+<circle cx="360" cy="38" r="24" class="bd"/>
+<text x="360" y="34" class="W" font-size="9">COMPTE</text>
+<text x="360" y="47" class="W" font-size="9">CRÉÉ</text>
+<line x1="360" y1="62" x2="360" y2="90" class="ln"/>
+
+<!-- ══ ÉTAPE 1 — ASSOCIATION ══ -->
+<text x="44" y="109" class="Ph">01</text>
+<rect x="54" y="91" width="612" height="48" rx="2" class="bx"/>
+<text x="360" y="111" class="L">ÉTAPE 1 — ASSOCIATION</text>
+<text x="360" y="127" class="S">Associer le compte à son contact principal</text>
+<line x1="360" y1="139" x2="360" y2="164" class="ln"/>
+
+<!-- ══ ÉTAPE 2 — PROFIL ══ -->
+<text x="44" y="194" class="Ph">02</text>
+<polygon points="360,165 472,207 360,249 248,207" class="bg"/>
+<text x="360" y="200" class="L">ÉTAPE 2 — PROFIL</text>
+<text x="360" y="215" class="S">Acheteur · Vendeur · Les deux ?</text>
+
+<!-- Acheteur gauche -->
+<path d="M248,207 L104,207" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="176" y="199" class="E">Acheteur</text>
+<rect x="54" y="189" width="50" height="36" rx="2" class="bg"/>
+<text x="79" y="205" class="L" font-size="10">Gest.</text>
+<text x="79" y="218" class="S">Achat</text>
+
+<!-- Vendeur droite -->
+<path d="M472,207 L616,207" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="544" y="199" class="E">Vendeur</text>
+<rect x="616" y="189" width="50" height="36" rx="2" class="bg"/>
+<text x="641" y="205" class="L" font-size="10">Gest.</text>
+<text x="641" y="218" class="S">Vente</text>
+
+<!-- Convergence → DÉBUT SUIVI -->
+<line x1="360" y1="249" x2="360" y2="285" class="ln"/>
+<text x="383" y="271" class="E">Acheteur + Vendeur</text>
+<path d="M79,225 L79,265 L360,265" stroke="#111" stroke-width="1.5" fill="none"/>
+<path d="M641,225 L641,265 L360,265" stroke="#111" stroke-width="1.5" fill="none"/>
+<circle cx="360" cy="265" r="3" fill="#111"/>
+
+<!-- ══ DÉBUT SUIVI ══ -->
+<circle cx="360" cy="298" r="22" class="bd"/>
+<text x="360" y="294" class="W" font-size="9">DÉBUT</text>
+<text x="360" y="307" class="W" font-size="9">SUIVI</text>
+<line x1="360" y1="320" x2="360" y2="348" class="ln"/>
+
+<!-- ══ ÉTAPE 3 — SUIVI AUTOMATISÉ ══ -->
+<text x="44" y="367" class="Ph">03</text>
+<rect x="54" y="349" width="612" height="50" rx="2" class="bg"/>
+<text x="360" y="369" class="L">ÉTAPE 3 — SUIVI AUTOMATISÉ</text>
+<text x="360" y="385" class="S">Nb ventes / achats · Dernière commande · Dernière interaction</text>
+<line x1="360" y1="399" x2="360" y2="427" class="ln"/>
+
+<!-- ══ SEGMENTATION ══ -->
+<polygon points="360,428 476,472 360,516 244,472" class="bg"/>
+<text x="360" y="465" class="L">Niveau du compte</text>
+<text x="360" y="480" class="S">Volume · Fréquence</text>
+
+<!-- 4 branches -->
+
+<!-- VIP — loin gauche -->
+<path d="M244,472 L92,472" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="168" y="464" class="E">VIP</text>
+
+<!-- Actif — gauche proche -->
+<path d="M244,472 L184,472 L184,548" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="200" y="512" class="E">Actif</text>
+
+<!-- Peu actif — droite proche -->
+<path d="M476,472 L536,472 L536,548" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="520" y="512" class="E">Peu actif</text>
+
+<!-- Inactif — loin droite -->
+<path d="M476,472 L628,472" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="552" y="464" class="E">Inactif</text>
+
+<!-- ══ BOÎTES SEGMENT + ACTIONS ══ -->
+
+<!-- VIP -->
+<rect x="54" y="450" width="38" height="42" rx="2" class="bm"/>
+<text x="73" y="467" class="W" font-size="9">VIP</text>
+<text x="73" y="480" class="Ws" font-size="8">Renforcé</text>
+<line x1="73" y1="492" x2="73" y2="524" class="ln"/>
+<rect x="42" y="524" width="62" height="60" rx="2" class="bm"/>
+<text x="73" y="541" class="W" font-size="8">Gest. dédié</text>
+<text x="73" y="554" class="Ws" font-size="8">Offres perso</text>
+<text x="73" y="567" class="Ws" font-size="8">Revue mens.</text>
+<!-- VIP retour -->
+<path d="M42,554 L24,554 L24,349 L54,349" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Actif -->
+<rect x="114" y="548" width="140" height="52" rx="2" class="bx"/>
+<text x="184" y="566" class="L">Compte actif</text>
+<text x="184" y="581" class="S">Offres régulières</text>
+<text x="184" y="594" class="S">Relance trimestrielle</text>
+<!-- Actif retour -->
+<path d="M184,600 L184,626 L148,626 L148,349 L172,349" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Peu actif -->
+<rect x="466" y="548" width="140" height="52" rx="2" class="bg"/>
+<text x="536" y="566" class="L">Peu actif</text>
+<text x="536" y="581" class="S">Comprendre</text>
+<text x="536" y="594" class="S">Proposer offres</text>
+<!-- Peu actif retour -->
+<path d="M536,600 L536,626 L572,626 L572,349 L548,349" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Inactif -->
+<rect x="628" y="450" width="52" height="42" rx="2" class="bd"/>
+<text x="654" y="467" class="W" font-size="9">INACTIF</text>
+<text x="654" y="480" class="Ws" font-size="8">Analyse</text>
+
+<!-- ══ ANALYSE CAUSE INACTIF ══ -->
+<line x1="654" y1="492" x2="654" y2="660" class="ln"/>
+<text x="668" y="580" class="E">Analyse</text>
+<text x="668" y="591" class="E">cause</text>
+
+<!-- Losange cause -->
+<polygon points="654,660 700,692 654,724 608,692" class="bg"/>
+<text x="654" y="686" class="L" font-size="10">Cause ?</text>
+
+<!-- Pas de contact → gauche -->
+<path d="M608,692 L530,692" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="569" y="684" class="E">Pas contact</text>
+<rect x="420" y="672" width="110" height="40" rx="2" class="bg"/>
+<text x="475" y="688" class="L" font-size="10">Relancer</text>
+<text x="475" y="702" class="S">le client</text>
+<!-- retour suivi -->
+<path d="M475,672 L475,650 L572,650 L572,349 L548,349" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Gest. inactif → gauche loin -->
+<path d="M608,692 L570,692 L570,780 L480,780" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="568" y="740" class="E" transform="rotate(-90,568,740)">Gest. inactif</text>
+<rect x="330" y="760" width="150" height="40" rx="2" class="bm"/>
+<text x="405" y="777" class="W">Changement gest.</text>
+<text x="405" y="791" class="Ws">Réassignation</text>
+<!-- retour DÉBUT SUIVI -->
+<path d="M405,760 L405,740 L360,740 L360,320" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Pas d'offre → bas -->
+<line x1="654" y1="724" x2="654" y2="780" class="ln"/>
+<text x="668" y="755" class="E">Pas d'offre</text>
+<rect x="592" y="780" width="124" height="40" rx="2" class="bg"/>
+<text x="654" y="796" class="L" font-size="10">Envoyer offres</text>
+<text x="654" y="810" class="S">liste ciblée</text>
+<!-- retour suivi -->
+<path d="M592,800 L572,800 L572,650 L548,349" stroke="#777" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#ad)"/>
+
+<!-- Client plus intéressé → archivage -->
+<path d="M700,692 L720,692 L720,880 L500,880" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+<text x="722" y="786" class="E" transform="rotate(-90,722,786)">Plus intéressé</text>
+<rect x="300" y="860" width="200" height="42" rx="2" class="bd"/>
+<text x="400" y="878" class="W">ARCHIVAGE</text>
+<text x="400" y="892" class="Ws">Client plus intéressé</text>
+
+<!-- ══ FIN ══ -->
+<line x1="400" y1="902" x2="400" y2="950" class="ln"/>
+<circle cx="400" cy="970" r="24" class="bd"/>
+<text x="400" y="974" class="W">FIN</text>
+
+</svg>
+</div>
+
+<div class="legend">
+  <div class="legend-title">Légende</div>
+  <div class="legend-item"><div class="lbox" style="background:#111;"></div> Début / Fin / Inactif / Archivage</div>
+  <div class="legend-item"><div class="lbox" style="background:#fff;"></div> Processus / Action standard</div>
+  <div class="legend-item"><div class="lbox" style="background:#e8e8e8;"></div> Décision / Sous-processus</div>
+  <div class="legend-item"><div class="lbox" style="background:#444;"></div> Action renforcée (VIP / Changement)</div>
+  <div class="legend-item"><div class="lbox" style="background:#fff; border-style:dashed;"></div> Flux de retour vers suivi automatisé</div>
+</div>
+
+</body>
+</html>

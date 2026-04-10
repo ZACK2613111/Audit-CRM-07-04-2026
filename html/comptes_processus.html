@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schéma BPMN — Lead → Compte</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #111;
+    padding: 32px 40px;
+    font-size: 13px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 16px;
+  }
+
+  header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  header p {
+    font-size: 11px;
+    color: #555;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .diagram-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  svg {
+    display: block;
+  }
+
+  .legend {
+    margin-top: 28px;
+    border-top: 1px solid #bbb;
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+  }
+
+  .legend-title {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .lbox {
+    width: 22px;
+    height: 14px;
+    border: 1.5px solid #111;
+  }
+
+  .golden-rule {
+    margin-top: 20px;
+    border: 2px solid #111;
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background: #f5f5f5;
+  }
+
+  .notes {
+    margin-top: 16px;
+    border: 1px solid #bbb;
+    padding: 12px 16px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .notes strong {
+    font-weight: 700;
+    color: #111;
+  }
+
+  @media print {
+    body { padding: 16px 20px; }
+    @page { size: A4 portrait; margin: 1.2cm; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Processus Lead → Compte</h1>
+  <p>Schéma de qualification et conversion — Version imprimable</p>
+</header>
+
+<div class="diagram-wrap">
+<svg width="740" height="1020" viewBox="0 0 740 1020" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <!-- ─── STYLES ─── -->
+  <style>
+    text { font-family: 'Segoe UI', Arial, sans-serif; fill: #111; }
+    .label { font-size: 11px; font-weight: 700; text-anchor: middle; fill: #111; }
+    .sub   { font-size: 10px; font-weight: 400; text-anchor: middle; fill: #333; }
+    .edge  { font-size: 10px; text-anchor: middle; fill: #333; }
+    .box   { fill: #fff; stroke: #111; stroke-width: 1.5px; }
+    .box-dark { fill: #111; stroke: #111; stroke-width: 1.5px; }
+    .box-shade { fill: #e8e8e8; stroke: #111; stroke-width: 1.5px; }
+    .box-stripe { fill: url(#stripe); stroke: #111; stroke-width: 1.5px; }
+    .line  { stroke: #111; stroke-width: 1.5px; fill: none; marker-end: url(#arr); }
+    .line-dash { stroke: #555; stroke-width: 1px; fill: none; stroke-dasharray: 5,3; marker-end: url(#arr); }
+    .diamond { fill: #e8e8e8; stroke: #111; stroke-width: 1.5px; }
+    .pill  { fill: #111; stroke: #111; stroke-width: 1.5px; }
+    .pill-text { font-size: 11px; font-weight: 700; text-anchor: middle; fill: #fff; }
+    .step-num { font-size: 9px; font-weight: 700; fill: #555; text-anchor: middle; }
+  </style>
+
+  <!-- ─── PHASE BANDS ─── -->
+  <!-- Band labels left side -->
+  <text x="18" y="72" font-size="9" font-weight="700" fill="#888" text-anchor="middle" transform="rotate(-90,18,72)">COLLECTE</text>
+  <text x="18" y="192" font-size="9" font-weight="700" fill="#888" text-anchor="middle" transform="rotate(-90,18,192)">CRÉATION</text>
+  <text x="18" y="312" font-size="9" font-weight="700" fill="#888" text-anchor="middle" transform="rotate(-90,18,312)">DISTRIBUTION</text>
+  <text x="18" y="452" font-size="9" font-weight="700" fill="#888" text-anchor="middle" transform="rotate(-90,18,452)">QUALIFICATION</text>
+  <text x="18" y="720" font-size="9" font-weight="700" fill="#888" text-anchor="middle" transform="rotate(-90,18,720)">CONVERSION</text>
+
+  <!-- Vertical left rule -->
+  <line x1="30" y1="28" x2="30" y2="990" stroke="#ccc" stroke-width="0.8"/>
+
+  <!-- ─── ÉTAPE 0 : DÉBUT ─── -->
+  <!-- Circle start -->
+  <circle cx="370" cy="44" r="22" fill="#111" stroke="#111" stroke-width="1.5"/>
+  <text x="370" y="48" class="pill-text">DÉBUT</text>
+
+  <!-- Arrow down -->
+  <line x1="370" y1="66" x2="370" y2="96" class="line"/>
+
+  <!-- ─── ÉTAPE 1 : COLLECTE ─── -->
+  <text x="54" y="115" class="step-num">01</text>
+  <rect x="60" y="97" width="620" height="56" rx="2" class="box"/>
+  <text x="370" y="117" class="label">ÉTAPE 1 — COLLECTE</text>
+  <text x="370" y="133" class="sub">Fichiers importés · Site web / Scraping · Formulaires</text>
+
+  <line x1="370" y1="153" x2="370" y2="183" class="line"/>
+
+  <!-- ─── ÉTAPE 2 : CRÉATION ─── -->
+  <text x="54" y="202" class="step-num">02</text>
+  <rect x="60" y="184" width="620" height="56" rx="2" class="box"/>
+  <text x="370" y="204" class="label">ÉTAPE 2 — CRÉATION DU LEAD</text>
+  <text x="370" y="220" class="sub">Import du fichier · Stockage en base</text>
+
+  <line x1="370" y1="240" x2="370" y2="270" class="line"/>
+
+  <!-- ─── ÉTAPE 3 : DISTRIBUTION ─── -->
+  <text x="54" y="290" class="step-num">03</text>
+  <rect x="60" y="271" width="620" height="64" rx="2" class="box-shade"/>
+  <text x="370" y="291" class="label">ÉTAPE 3 — DISTRIBUTION DU LEAD</text>
+  <text x="370" y="308" class="sub">Round-robin par pays · Assignation à un gestionnaire</text>
+  <text x="370" y="323" class="sub" font-style="italic">⚑ Sans pays → lead en file d'attente</text>
+
+  <line x1="370" y1="335" x2="370" y2="365" class="line"/>
+
+  <!-- ─── ÉTAPE 4 : QUALIFICATION ─── -->
+  <text x="54" y="384" class="step-num">04</text>
+  <rect x="60" y="366" width="620" height="44" rx="2" class="box"/>
+  <text x="370" y="386" class="label">ÉTAPE 4 — QUALIFICATION (vérification manuelle)</text>
+  <text x="370" y="401" class="sub">Contacter le lead · Vérifier les informations</text>
+
+  <line x1="370" y1="410" x2="370" y2="440" class="line"/>
+
+  <!-- ─── DECISION : Contact établi ? ─── -->
+  <polygon points="370,440 490,480 370,520 250,480" class="diamond"/>
+  <text x="370" y="475" class="label">Contact</text>
+  <text x="370" y="490" class="label">établi ?</text>
+
+  <!-- OUI → droite -->
+  <line x1="490" y1="480" x2="560" y2="480" class="line"/>
+  <text x="523" y="472" class="edge">OUI</text>
+
+  <!-- ─── DECISION : Infos valides ? ─── -->
+  <polygon points="610,480 690,512 610,544 530,512" class="diamond"/>
+  <text x="610" y="507" class="label">Infos</text>
+  <text x="610" y="521" class="label">valides ?</text>
+
+  <!-- OUI vers bas ─── -->
+  <line x1="610" y1="544" x2="610" y2="574" class="line"/>
+  <text x="620" y="563" class="edge">OUI</text>
+
+  <!-- NON → boucle enrichissement -->
+  <path d="M690,512 L720,512 L720,600 L680,600" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="705" y="508" class="edge">NON</text>
+
+  <rect x="560" y="574" width="120" height="40" rx="2" class="box-shade"/>
+  <text x="620" y="590" class="label">Enrichissement</text>
+  <text x="620" y="604" class="sub">manuel</text>
+
+  <!-- Boucle retour vers Infos valides -->
+  <path d="M560,594 L540,594 L540,512 L530,512" stroke="#555" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+  <!-- Lead prêt -->
+  <rect x="550" y="628" width="140" height="36" rx="2" class="box"/>
+  <text x="620" y="642" class="label">Lead prêt</text>
+  <text x="620" y="656" class="sub">pour conversion</text>
+
+  <!-- NON Contact → gauche (relance) -->
+  <line x1="250" y1="480" x2="160" y2="480" class="line"/>
+  <text x="205" y="472" class="edge">NON</text>
+
+  <!-- Relance -->
+  <rect x="60" y="456" width="100" height="48" rx="2" class="box-shade"/>
+  <text x="110" y="474" class="label">Relance</text>
+  <text x="110" y="488" class="sub">Email / Tél.</text>
+
+  <!-- 3 tentatives ? -->
+  <polygon points="110,524 185,552 110,580 35,552" class="diamond"/>
+  <text x="110" y="547" class="label">3 tentatives</text>
+  <text x="110" y="562" class="label">sans succès ?</text>
+
+  <line x1="110" y1="504" x2="110" y2="524" class="line"/>
+
+  <!-- NON → retour vers contact -->
+  <path d="M185,552 L210,552 L210,480 L250,480" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="218" y="544" class="edge">NON</text>
+
+  <!-- OUI → Autre action -->
+  <line x1="110" y1="580" x2="110" y2="620" class="line"/>
+  <text x="122" y="604" class="edge">OUI</text>
+
+  <rect x="55" y="620" width="110" height="48" rx="2" class="box-dark"/>
+  <text x="110" y="638" class="pill-text">Autre action</text>
+  <text x="110" y="652" style="font-size:9px;text-anchor:middle;fill:#ccc;">Canal / Gestionnaire</text>
+
+  <!-- Retour distribution -->
+  <path d="M110,668 L110,700 L40,700 L40,302 L60,302" stroke="#555" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="28" y="500" font-size="9" fill="#777" text-anchor="middle" transform="rotate(-90,28,500)">retour</text>
+
+  <!-- ─── ÉTAPE 5 : CONVERSION ─── -->
+  <!-- Arrow from "Lead prêt" to Étape 5 -->
+  <line x1="620" y1="664" x2="620" y2="700" class="line"/>
+  <path d="M620,700 L370,700" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <text x="54" y="720" class="step-num">05</text>
+  <rect x="60" y="701" width="620" height="44" rx="2" class="box"/>
+  <text x="370" y="721" class="label">ÉTAPE 5 — CONVERSION : Lead → Compte</text>
+  <text x="370" y="737" class="sub">Création du compte dans le CRM</text>
+
+  <line x1="370" y1="745" x2="370" y2="775" class="line"/>
+
+  <!-- ─── RÈGLE D'OR ─── -->
+  <polygon points="370,775 490,815 370,855 250,815" class="diamond"/>
+  <text x="370" y="807" class="label" font-size="10">Contact associé</text>
+  <text x="370" y="822" class="label" font-size="10">au compte ?</text>
+  <text x="370" y="836" class="sub" font-size="9">RÈGLE D'OR</text>
+
+  <!-- OUI → compte créé -->
+  <line x1="490" y1="815" x2="570" y2="815" class="line"/>
+  <text x="528" y="808" class="edge">OUI</text>
+
+  <rect x="570" y="793" width="130" height="44" rx="2" class="box"/>
+  <text x="635" y="811" class="label">Compte créé</text>
+  <text x="635" y="825" class="sub">+ Contact associé</text>
+
+  <!-- NON → blocage -->
+  <line x1="250" y1="815" x2="170" y2="815" class="line"/>
+  <text x="208" y="808" class="edge">NON</text>
+
+  <rect x="60" y="793" width="110" height="44" rx="2" class="box-dark"/>
+  <text x="115" y="811" class="pill-text">BLOCAGE</text>
+  <text x="115" y="825" style="font-size:9px;text-anchor:middle;fill:#ccc;">Conversion impossible</text>
+
+  <!-- Arrows to FIN -->
+  <line x1="635" y1="837" x2="635" y2="960" class="line"/>
+  <path d="M635,960 L370,960" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <line x1="115" y1="837" x2="115" y2="960" class="line"/>
+  <path d="M115,960 L348,960" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- FIN -->
+  <circle cx="370" cy="980" r="22" fill="#111" stroke="#111" stroke-width="1.5"/>
+  <text x="370" y="984" class="pill-text">FIN</text>
+
+</svg>
+</div>
+
+<!-- LÉGENDE -->
+<div class="legend">
+  <div class="legend-title">Légende</div>
+  <div class="legend-item">
+    <div class="lbox" style="background:#111;"></div>
+    Début / Fin / Blocage
+  </div>
+  <div class="legend-item">
+    <div class="lbox" style="background:#fff;"></div>
+    Processus / Action
+  </div>
+  <div class="legend-item">
+    <div class="lbox" style="background:#e8e8e8;"></div>
+    Décision / Sous-processus
+  </div>
+  <div class="legend-item">
+    <div class="lbox" style="background:#fff; border-style:dashed;"></div>
+    Flux de retour
+  </div>
+</div>
+
+<!-- RÈGLE D'OR -->
+<div class="golden-rule">
+  ⚠ RÈGLE D'OR : Un compte ne peut pas être créé sans contact associé.
+</div>
+
+<!-- NOTES -->
+<div class="notes">
+  <strong>Note sur le Pays :</strong> Le pays est obligatoire pour la distribution (round-robin). Sans pays, le lead reste en file d'attente et ne peut pas être assigné.<br>
+  <strong>Note sur la qualification :</strong> La vérification est manuelle. Même avec toutes les informations renseignées, un contact humain est nécessaire pour valider le lead.
+</div>
+
+</body>
+</html>

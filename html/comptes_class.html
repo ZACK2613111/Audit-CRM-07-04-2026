@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposition — Classes Compte, Contact, Lead</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: white;
+      font-family: 'Manrope', 'Segoe UI', sans-serif;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #0f2b3d;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #475569;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #f1f5f9;
+      color: #0f2b3d;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .pillar {
+      margin-bottom: 1.2rem;
+    }
+
+    .pillar-title {
+      font-weight: 700;
+      color: #1e4a76;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .field-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .field-list li {
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .field-checkbox {
+      margin-top: 0.1rem;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .field-name {
+      font-weight: 500;
+      width: 35%;
+      flex-shrink: 0;
+    }
+
+    .field-rule {
+      color: #475569;
+      font-size: 0.75rem;
+      flex: 1;
+    }
+
+    .proposal-row {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      margin-top: 0.3rem;
+    }
+
+    .proposal-row .field-name {
+      color: #475569;
+      font-style: italic;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #1e293b;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+    }
+
+    .badge-pending {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .example {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-left: 3px solid #475569;
+    }
+
+    .relation {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .rule-box {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #cbd5e1;
+    }
+
+    .pending-box {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media print {
+      body {
+        padding: 20px;
+        margin: 0;
+      }
+      .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .checkbox-group {
+        break-inside: avoid;
+      }
+      @page {
+        size: portrait;
+        margin: 1.5cm;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Proposition — Classes Compte, Contact, Lead</h1>
+  <div class="subtitle">Version basée sur l'audit — 5 piliers pour le Compte — À valider par l'équipe</div>
+
+  <div class="grid-3">
+    
+    <!-- COMPTE -->
+    <div class="card">
+      <div class="card-header">COMPTE</div>
+      <div class="card-body">
+        
+        <div class="pillar">
+          <div class="pillar-title">Pilier 1 — Identité</div>
+          <ul class="field-list">
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Id</span><span class="field-rule">unique</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Raison sociale</span><span class="field-rule">obligatoire</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Enseigne</span><span class="field-rule">obligatoire</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Pays</span><span class="field-rule">obligatoire</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Adresse</span><span class="field-rule">obligatoire</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">SIRET / SIREN</span><span class="field-rule">France uniquement</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">TVA intra</span><span class="field-rule">étranger uniquement</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Activité</span><span class="field-rule">Acheteur / Vendeur / Les deux</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">ContactId</span><span class="field-rule">lien vers contact (1 ou plusieurs)</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Achats</span><span class="field-rule">liens si fournisseur</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Ventes</span><span class="field-rule">liens si client</span></li>
+            
+            <!-- Espace pour propositions -->
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-title">Pilier 2 — Contact</div>
+          <ul class="field-list">
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Liste des contacts</span><span class="field-rule">un compte peut avoir plusieurs contacts</span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-title">Pilier 3 — Commercial</div>
+          <ul class="field-list">
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Chiffre d'affaires</span><span class="field-rule">optionnel</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Nombre VO en stock</span><span class="field-rule">stock actuel</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Marques achetées</span><span class="field-rule">ce qu'il nous achète</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Marques vendues</span><span class="field-rule">ce qu'il vend</span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-title">Pilier 4 — Relation</div>
+          <ul class="field-list">
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Gestionnaire Achat</span><span class="field-rule">si Acheteur ou Mixte</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Gestionnaire Vente</span><span class="field-rule">si Vendeur ou Mixte</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Dernier appel</span><span class="field-rule">date + contenu</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Dernier email</span><span class="field-rule">date + objet</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Remarques</span><span class="field-rule">historique</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Emails envoyés</span><span class="field-rule">liste des échanges</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Statut Achat</span><span class="field-rule">À qualifier / Actif / Occasionnel / Hors cible / Blacklist</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Statut Vente</span><span class="field-rule">À qualifier / Actif / Occasionnel / Hors cible / Blacklist</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Dernière commande</span><span class="field-rule">date</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Nombre d'achats</span><span class="field-rule">volume</span></li>
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">CA achat</span><span class="field-rule">montant total acheté</span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-title">Pilier 5</div>
+          <ul class="field-list">
+            <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Pas de pilier 5</span><span class="field-rule"></span></li>
+            <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter (nouveau pilier)</span></li>
+          </ul>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox"> <strong>Validation globale du Compte</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card">
+      <div class="card-header">CONTACT</div>
+      <div class="card-body">
+        <ul class="field-list">
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Nom</span><span class="field-rule">obligatoire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Prénom</span><span class="field-rule">obligatoire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Entreprise</span><span class="field-rule">raison sociale du compte associé</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Téléphone</span><span class="field-rule">obligatoire (au moins un moyen de contact)</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Email</span><span class="field-rule">obligatoire (au moins un moyen de contact)</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Site web</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Activité</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Fonction</span><span class="field-rule">Acheteur / Vendeur / Décideur / Autre</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Créé par</span><span class="field-rule">qui a créé le contact</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Modifié par</span><span class="field-rule">qui a modifié le contact</span></li>
+          
+          <!-- Espace pour propositions -->
+          <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+        </ul>
+
+        <div class="rule-box">
+          <strong>Règle :</strong> Téléphone OU Email obligatoire. Un contact sans aucun moyen de contact ne peut pas être créé.
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox"> <strong>Validation globale du Contact</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEAD — EN ATTENTE DE VALIDATION -->
+    <div class="card">
+      <div class="card-header">LEAD <span class="badge-pending badge" style="margin-left: 0.5rem;">À valider</span></div>
+      <div class="card-body">
+        <div class="pending-box">
+          <strong>⚠️ En attente de validation</strong><br>
+          La structure du Lead n'est pas encore finalisée. Proposer des modifications ci-dessous.
+        </div>
+
+        <ul class="field-list" style="margin-top: 1rem;">
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Nom</span><span class="field-rule">obligatoire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Prénom</span><span class="field-rule">obligatoire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Email</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Téléphone</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Enseigne</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Pays</span><span class="field-rule">obligatoire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Activité</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Marques</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Volume VO</span><span class="field-rule">optionnel</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Source</span><span class="field-rule">siteweb / fichier / scraping / formulaire</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Statut</span><span class="field-rule">Non contacté / Tentative / Contact identifié / Fiche prête</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Gestionnaire Vente</span><span class="field-rule">assigné automatiquement</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Créé par</span><span class="field-rule">qui a créé le lead</span></li>
+          <li><input type="checkbox" class="field-checkbox"> <span class="field-name">Date création</span><span class="field-rule">automatique</span></li>
+          
+          <!-- Espace pour propositions -->
+          <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+          <li class="proposal-row"><input type="checkbox" class="field-checkbox"> <span class="field-name">_________________</span><span class="field-rule">proposition à ajouter</span></li>
+        </ul>
+
+        <div class="checkbox-group">
+          <input type="checkbox"> <strong>Validation globale du Lead (quand finalisé)</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SIGNATURE -->
+  <div class="example" style="margin-top: 2rem; text-align: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>Date : _________________</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

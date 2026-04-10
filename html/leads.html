@@ -10,13 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../style.css" />
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body class="theme-dark page-audit">
+  
 <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
     <span class="sun">☀️</span>
     <span class="moon">🌙</span>
-  </button>
-  <header class="report-hero" id="top">
+</button>
+
+<header class="report-hero" id="top">
     <div class="report-hero__glow"></div>
     <div class="container report-hero__inner">
       <a class="back-pill" href="../index.html">Retour au sommaire</a>
@@ -28,602 +32,442 @@
 
       <h1>Leads</h1>
       <p class="report-lead">
-        Analyse du module Leads de Zoho CRM : lisibilité du tableau, qualité réelle des champs,
-        richesse des listes de valeurs, surcharge des filtres, intérêt des vues alternatives
-        et niveau d'exploitabilité du détail d'un lead pour les équipes métier.
+        Audit du module Leads — <strong>9 640 enregistrements</strong> analysés.
+        Ce rapport présente les constats, les anomalies détectées et les recommandations
+        pour optimiser la qualité des données et la qualification vers les Comptes.
       </p>
     </div>
-  </header>
+</header>
 
-  <main class="container report-layout">
+<main class="container report-layout" id="pdfContent">
     <aside class="toc">
       <div class="toc-card">
-        <p class="toc-label">Sur cette page</p>
+        <p class="toc-label">Navigation</p>
         <nav class="toc-links">
-          <a href="#synthese">Synthèse</a>
-          <a href="#tableau">Tableau principal</a>
-          <a href="#valeurs">Valeurs métier</a>
-          <a href="#qualite-donnees">Qualité des données</a>
-          <a href="#filtres">Filtres et vues</a>
-          <a href="#detail">Détail d'un lead</a>
-          <a href="#qualification">Qualification vers un Compte</a>
-          <a href="#profils">Vues par profil</a>
-          <a href="#actions">Actions recommandées</a>
+          <a href="#synthese">01 — Synthèse</a>
+          <a href="#statistiques">02 — Indicateurs clés</a>
+          <a href="#failles">03 — Failles critiques</a>
+          <a href="#scenarios">04 — Scénarios types</a>
+          <a href="#telephones">05 — Anomalies téléphone</a>
+          <a href="#socles">06 — Champs socles</a>
+          <a href="#gestionnaires">07 — Gestionnaires</a>
+          <a href="#qualification">08 — Qualification vers Compte</a>
+          <a href="#recommandations">09 — Recommandations</a>
         </nav>
       </div>
     </aside>
 
     <section class="report-content">
 
-      <!-- ───────────────────────────── SYNTHESE ───────────────────────────── -->
+      <!-- ── 01 SYNTHESE ── -->
       <section id="synthese" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">Lecture rapide</span>
-          <h2>Synthèse</h2>
+          <span class="section-kicker">01 — Lecture rapide</span>
+          <h2>Synthèse de l'audit</h2>
           <p>
-            Le module Leads contient une base exploitable et structurée, mais sa lecture est pénalisée
-            par un tableau trop dense, des champs souvent vides, des listes de valeurs nombreuses
-            et un niveau de filtre supérieur au besoin réel des utilisateurs.
+            Le module Leads contient <strong>9 640 enregistrements</strong>. L'analyse révèle des opportunités d'amélioration
+            sur plusieurs axes : qualité des coordonnées, complétude des champs socles,
+            cohérence des statuts, et répartition des gestionnaires.
           </p>
+        </div>
+
+        <!-- Score de maturité -->
+        <div style="text-align: center; margin: 2rem 0 1rem 0;">
+          <div style="display: inline-block; background: #1e293b; color: white; padding: 1rem 2rem; border-radius: 1rem;">
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Score de maturité Leads</div>
+            <div style="font-size: 4rem; font-weight: 800; line-height: 1;">38<span style="font-size: 1.5rem;">/100</span></div>
+            <div style="font-size: 0.8rem;">Objectif 2026 : 70/100</div>
+          </div>
+        </div>
+
+        <!-- Citation -->
+        <div style="margin: 2rem 0; padding: 1.5rem; background: var(--card-bg, #fff); border-radius: 1rem; border-left: 4px solid #f59e0b; font-style: italic;">
+          <p style="font-size: 1.1rem; margin: 0;">« Je préfère chercher dans un petit lac où je sais que le poisson est là, plutôt que dans une mer où je sais que je ne vais pas trouver. »</p>
+          <p style="margin: 0.5rem 0 0 0; color: var(--text-soft, #64748b);">— Qualification des leads : prioriser la qualité sur la quantité</p>
         </div>
 
         <div class="summary-grid">
           <article class="summary-card">
             <span class="summary-card__label">Constat principal</span>
-            <h3>Structure riche mais lourde</h3>
-            <p>Le module contient beaucoup d'informations utiles, mais elles sont présentées dans une interface trop chargée.</p>
+            <h3>Beaucoup de leads, peu de complets</h3>
+            <p>Seulement <strong>465 leads (4,8%)</strong> ont les 5 champs socles renseignés et sont prêts à être convertis en Comptes.</p>
           </article>
-
           <article class="summary-card">
-            <span class="summary-card__label">Impact métier</span>
-            <h3>Lecture et tri ralentis</h3>
-            <p>Le vendeur ou gestionnaire doit parcourir trop de colonnes et trop de champs avant d'agir.</p>
+            <span class="summary-card__label">Anomalie majeure</span>
+            <h3>6 206 leads orphelins</h3>
+            <p>64% des leads ont "AUTO DECLIC" comme gestionnaire — personne n'est responsable de leur qualification.</p>
           </article>
-
           <article class="summary-card">
-            <span class="summary-card__label">Priorité audit</span>
-            <h3>Mieux hiérarchiser l'essentiel</h3>
-            <p>Le besoin principal n'est pas d'ajouter des données, mais de rendre visibles les données vraiment utiles.</p>
+            <span class="summary-card__label">Gaspillage détecté</span>
+            <h3>Des contacts sans qualification</h3>
+            <p>5061 leads ont un téléphone mais "Infos contact incomplet" — des opportunités perdues.</p>
           </article>
         </div>
       </section>
 
-      <!-- ───────────────────────────── TABLEAU ───────────────────────────── -->
-      <section id="tableau" class="report-section">
+      <!-- ── 02 INDICATEURS CLES ── -->
+      <section id="statistiques" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">Vue 01</span>
-          <h2>Tableau principal</h2>
-          <p>
-            La vue liste constitue le cœur du module. Elle affiche 259 enregistrements avec pagination par 100,
-            dans un tableau large qui concentre l'essentiel des informations commerciales, administratives et de suivi.
-          </p>
+          <span class="section-kicker">02 — Données chiffrées</span>
+          <h2>Indicateurs clés</h2>
+          <p>État des lieux quantitatif sur les 9 640 leads.</p>
         </div>
 
-        <div class="capture-strip">
-          <figure class="capture-large">
-            <img src="../images/02-leads/1.png" alt="Vue tableau du module Leads dans Zoho CRM" />
-            <figcaption>Vue liste — tableau principal du module Leads avec colonnes nombreuses et pagination.</figcaption>
-          </figure>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0;">
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Total leads</div>
+            <div style="font-size: 2.5rem; font-weight: 800;">9 640</div>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Sans pays</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color:#f59e0b;">14</div>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Sans téléphone ni email</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color:#ef4444;">224</div>
+            <div style="font-size: 0.8rem;">2,3% — injoignables</div>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Email vide</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color:#f59e0b;">5 296</div>
+            <div style="font-size: 0.8rem;">55% — canal email inexploitable</div>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Gestionnaire = AUTO DECLIC</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color:#ef4444;">6 206</div>
+            <div style="font-size: 0.8rem;">64% — leads orphelins</div>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+            <div style="font-size: 0.75rem; text-transform: uppercase;">Leads prêts à convertir</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color:#22c55e;">465</div>
+            <div style="font-size: 0.8rem;">4,8% seulement</div>
+          </div>
         </div>
 
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Champs visibles</h3>
-            <ul class="clean-list">
-              <li>Nom, Enseigne(s), Code postal, Ville, N° DE TVA INTRA</li>
-              <li>Disposition, Pays, État du prospect Vente, Statut du Lead</li>
-              <li>Chiffre d'affaires, Groupe, Nb J dernière interaction, Notification</li>
-              <li>Dernier e-mail envoyé ou reçu, Dernier remarque ajouté, Dernier appel fait</li>
-              <li>Activité, Gestionnaire Vente, E-mail, Téléphone, Nom de Lead, Site Web</li>
-              <li>Information Entreprise, Information Contact</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>Lecture d'ensemble</h3>
-            <ul class="clean-list">
-              <li>Le tableau est informativement riche.</li>
-              <li>La densité visuelle est très forte.</li>
-              <li>Plusieurs colonnes ne sont pas assez remplies pour justifier leur présence permanente.</li>
-              <li>Le balayage rapide des leads prioritaires devient difficile.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="insight-card">
-          <strong>Lecture UX :</strong> la structure est complète sur le papier, mais l'utilisateur doit fournir
-          un effort visuel trop important pour retrouver les signaux réellement utiles à l'action.
+        <div style="background: var(--card-bg, #fff); border-radius: 1.5rem; padding: 1.5rem; margin: 2rem 0; border: 1px solid var(--border-light, #e2e8f0);">
+          <div style="font-weight: 700; margin-bottom: 1rem;">📊 Taux de complétude des champs socles</div>
+          <canvas id="completionChart" width="400" height="200" style="max-width: 100%; height: auto;"></canvas>
         </div>
       </section>
 
-      <!-- ───────────────────────────── VALEURS ───────────────────────────── -->
-      <section id="valeurs" class="report-section">
+      <!-- ── 03 FAILLES CRITIQUES ── -->
+      <section id="failles" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">Vue 02</span>
-          <h2>Valeurs métier</h2>
-          <p>
-            Plusieurs champs du module reposent sur des listes de valeurs structurantes. Elles sont utiles pour normaliser la donnée,
-            mais leur présentation doit être rendue plus visible et plus pédagogique dans l'audit.
-          </p>
+          <span class="section-kicker">03 — Vulnérabilités</span>
+          <h2>Failles critiques identifiées</h2>
         </div>
 
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Statut du Lead — 4 valeurs</h3>
-            <ul class="clean-list">
-              <li>Non Contacté</li>
-              <li>Tentative de Contact</li>
-              <li>Contact identifié</li>
-              <li>Fiche prête</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>État du prospect Vente — 7 valeurs</h3>
-            <ul class="clean-list">
-              <li>Non intéressé</li>
-              <li>Chaud</li>
-              <li>Rattaché</li>
-              <li>Hors cible</li>
-              <li>Blacklist</li>
-              <li>Ne pas contacter</li>
-              <li>Perdu</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Notification — 5 valeurs</h3>
-            <ul class="clean-list">
-              <li>Suivi</li>
-              <li>Lié à un groupe</li>
-              <li>- de 5j avant passage en pot commun</li>
-              <li>En attente d'un nouveau Gestionnaire</li>
-              <li>Exception justifiée</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>Activité — 6 types</h3>
-            <ul class="clean-list">
-              <li>Concessionnaire</li>
-              <li>Constructeur</li>
-              <li>Cellule d'achat</li>
-              <li>Loueur</li>
-              <li>Agent</li>
-              <li>Marchand</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="two-column-notes">
-          <article class="note-panel">
-            <h3>Autres champs à choix</h3>
-            <ul class="clean-list">
-              <li><strong>Disposition :</strong> Étranger, Layout Vendeur, Standard</li>
-              <li><strong>Information Contact :</strong> Oui, Infos contact incomplet</li>
-              <li><strong>Pays :</strong> liste de pays prédéfinie</li>
-              <li><strong>Marque(s) Info(s) :</strong> grande liste de marques</li>
-            </ul>
-          </article>
-
-          <article class="note-panel">
-            <h3>Lecture d'audit</h3>
-            <p>
-              Ces listes montrent une vraie volonté de structuration métier. En revanche, elles gagneraient à être regroupées,
-              clarifiées et mieux mises en avant dans l'interface et dans la documentation fonctionnelle.
-            </p>
-          </article>
-        </div>
-
-        <div class="capture-strip">
-          <figure class="capture-large">
-            <img src="../images/02-leads/2.png" alt="Capture des filtres et des sélections du module Leads" />
-            <figcaption>Filtres et sélections — diversité importante des catégories et des valeurs disponibles.</figcaption>
-          </figure>
-
-          <figure class="capture-large">
-            <img src="../images/02-leads/3.png" alt="Vue Kanban du module Leads dans Zoho CRM" />
-            <figcaption>Vue Kanban — lecture alternative du pipeline, plus visuelle mais à confirmer côté usage réel.</figcaption>
-          </figure>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #1 — Leads orphelins</div>
+            <p><strong>6 206 leads</strong> (64%) ont "AUTO DECLIC" comme gestionnaire. Personne n'est responsable de leur qualification. Ces leads ne seront jamais contactés.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #2 — Contacts sans qualification</div>
+            <p><strong>5 061 leads</strong> ont un téléphone mais sont marqués "Infos contact incomplet". Des opportunités réelles sont perdues car non qualifiées.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #f59e0b;">Faille #3 — "À qualifier" massif</div>
+            <p><strong>3 928 leads</strong> ont "à qualifier" dans le nom. L'effort de renseignement n'a pas été fait, même pour des leads avec site web.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #f59e0b;">Faille #4 — Pas de source de lead</div>
+            <p>Aucun champ "Source" n'existe. On ne sait pas d'où viennent les 9 640 leads (siteweb, fichier, scraping, etc.).</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #5 — Format téléphone non normalisé</div>
+            <p>Des numéros avec tirets, espaces, 11 chiffres, "00" au lieu de "+". L'intégration avec Aircall (ou autre téléphonie) est compromise.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #f59e0b;">Faille #6 — "Fiche prête" inutilisé</div>
+            <p>Le statut "Fiche prête" = 0 lead. Les leads qualifiables ne sont pas identifiés comme tels → ils stagnent.</p>
+          </div>
         </div>
       </section>
 
-      <!-- ───────────────────────────── QUALITE DONNEES ───────────────────────────── -->
-      <section id="qualite-donnees" class="report-section">
+      <!-- ── 04 SCENARIOS TYPES ── -->
+      <section id="scenarios" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">Vue 03</span>
-          <h2>Qualité des données</h2>
-          <p>
-            L'audit met en évidence une différence nette entre les champs réellement exploités au quotidien
-            et les champs prévus dans le modèle mais très peu renseignés.
-          </p>
+          <span class="section-kicker">04 — Mises en situation</span>
+          <h2>Scénarios types</h2>
         </div>
 
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Champs souvent utiles</h3>
-            <ul class="clean-list">
-              <li>Téléphone, car l'usage principal reste l'appel sortant</li>
-              <li>E-mail, lorsqu'il est connu</li>
-              <li>Pays, Ville, Code postal</li>
-              <li>Activité</li>
-              <li>Gestionnaire Vente</li>
-              <li>Nom de Lead, quand il est identifié</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>Champs peu exploitables</h3>
-            <ul class="clean-list">
-              <li>Nom, souvent remplacé par "a qualifier"</li>
-              <li>Enseigne(s), majoritairement vide</li>
-              <li>Chiffre d'affaires, généralement absent</li>
-              <li>Groupe, souvent vide</li>
-              <li>Dernier e-mail envoyé ou reçu, souvent vide</li>
-              <li>Dernier remarque ajouté, souvent vide</li>
-            </ul>
-          </article>
+        <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem;">
+          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">📞 Scénario 1 — Le lead orphelin</div>
+          <p><strong>Constat :</strong> 6 206 leads assignés à "AUTO DECLIC". Personne n'est responsable.</p>
+          <p><strong>Conséquence :</strong> Ces leads ne sont jamais contactés, jamais qualifiés. Des opportunités commerciales sont perdues.</p>
+          <p><strong>Solution :</strong> Distribuer automatiquement ces leads aux gestionnaires Vente par round-robin.</p>
         </div>
 
-        <div class="insight-card insight-card--warning">
-          <strong>Point de vigilance :</strong> un champ visible mais rarement renseigné coûte en lisibilité.
-          Lorsqu'un champ n'aide pas à décider, il devrait être masqué, déplacé ou rendu secondaire.
+        <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem;">
+          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">📧 Scénario 2 — Le contact sans qualification</div>
+          <p><strong>Constat :</strong> 5 061 leads ont un téléphone mais "Infos contact incomplet".</p>
+          <p><strong>Conséquence :</strong> On a le moyen de les contacter, mais on ne le fait pas. L'information de contact existe, l'action n'est pas déclenchée.</p>
+          <p><strong>Solution :</strong> Créer une tâche automatique "Qualifier ce lead" dès qu'un téléphone est renseigné.</p>
+        </div>
+
+        <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6;">
+          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">🌍 Scénario 3 — Le lead étranger bloqué</div>
+          <p><strong>Constat :</strong> 58 leads étrangers sont en "En attente d'un nouveau gestionnaire" sans action depuis longtemps.</p>
+          <p><strong>Conséquence :</strong> Un potentiel commercial à l'international est perdu.</p>
+          <p><strong>Solution :</strong> Assigner automatiquement les leads étrangers à un gestionnaire dédié ou créer un processus spécifique.</p>
         </div>
       </section>
 
-      <!-- ───────────────────────────── FILTRES ───────────────────────────── -->
-      <section id="filtres" class="report-section">
-        <div class="section-intro">
-          <span class="section-kicker">Vue 04</span>
-          <h2>Filtres et vues</h2>
-          <p>
-            Le module propose un système de filtrage très vaste ainsi que plusieurs vues alternatives,
-            mais cette richesse fonctionnelle donne aussi une impression de dispersion.
-          </p>
+       <!-- ==================== SECTION 5 : ANOMALIES TELEPHONE ==================== -->
+    <section id="telephones" class="report-section">
+      <div class="section-intro">
+        <span class="section-kicker">05 — Données critiques</span>
+        <h2>Anomalies des numéros de téléphone</h2>
+        <p>Analyse des formats de numéros de téléphone dans la base leads.</p>
+      </div>
+
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#ef4444;">92</div>
+          <div class="stat-card__label">Numéros commençant par 00</div>
+          <div class="insight-text">devraient être +XX (ex: 0044... → +44...)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#22c55e;">635</div>
+          <div class="stat-card__label">Numéros commençant par 0</div>
+          <div class="insight-text">France — format standard OK</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#22c55e;">28</div>
+          <div class="stat-card__label">Numéros commençant par +33</div>
+          <div class="insight-text">France — format international OK</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">1 487</div>
+          <div class="stat-card__label">Numéros commençant par 3</div>
+          <div class="insight-text">Numéros étrangers sans le + (manque l'indicatif pays)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">1 654</div>
+          <div class="stat-card__label">Numéros commençant par 4</div>
+          <div class="insight-text">Numéros étrangers sans le + (Espagne, Danemark, etc.)</div>
+        </div>
+      </div>
+
+      <div class="anomaly-box">
+        <strong>🔴 Problème : Format non normalisé</strong>
+        <p style="margin-top: 0.5rem;">Un numéro comme <code>00436641612655</code> devrait être <code>+43 664 1612655</code>.</p>
+        <p>Des numéros contiennent aussi des <strong>tirets, espaces, virgules</strong> — ce qui bloque l'intégration téléphonie (Aircall).</p>
+      </div>
+
+      <div class="warning-box">
+        <strong>⚠️ Recommandation</strong>
+        <p style="margin-top: 0.5rem;">Uniformiser tous les numéros au format international <strong>E.164</strong> (<code>+33XXXXXXXXX</code> pour la France).</p>
+        <p class="insight-text">Nettoyer les caractères spéciaux (tirets, espaces, points, virgules).</p>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6 : COMPLETUDE DES CHAMPS SOCLES ==================== -->
+    <section id="socles" class="report-section">
+      <div class="section-intro">
+        <span class="section-kicker">06 — Complétude des données</span>
+        <h2>État des champs socles</h2>
+        <p>Les 5 champs obligatoires pour qualifier un lead avant conversion en Compte.</p>
+      </div>
+
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#ef4444;">2 366</div>
+          <div class="stat-card__label">Activité vide</div>
+          <div class="insight-text">24,5%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">2 013</div>
+          <div class="stat-card__label">Enseigne vide</div>
+          <div class="insight-text">20,9%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">1 959</div>
+          <div class="stat-card__label">Marque(s) vide</div>
+          <div class="insight-text">20,3%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">1 844</div>
+          <div class="stat-card__label">Volume VO vide</div>
+          <div class="insight-text">19,1%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__value" style="color:#f59e0b;">113</div>
+          <div class="stat-card__label">Volume VO = 0</div>
+        </div>
+      </div>
+
+      <div class="stats-cards">
+        <div class="stat-card" style="background: #dcfce7; border-color: #22c55e;">
+          <div class="stat-card__value" style="color:#166534;">465</div>
+          <div class="stat-card__label">5 champs complets</div>
+          <div class="insight-text">4,8% — prêts à convertir</div>
+        </div>
+      </div>
+
+      <div class="warning-box" style="background: #dcfce7; border-left-color: #22c55e;">
+        <strong>✅ Opportunité</strong>
+        <p style="margin-top: 0.5rem;"><strong>465 leads</strong> sont déjà complets (activité, enseigne, marque, volume VO, téléphone). Ils n'attendent qu'une <strong>conversion en Compte</strong>.</p>
+      </div>
+
+      <div class="anomaly-box">
+        <strong>📊 Récapitulatif des 5 champs socles</strong>
+        <ul style="margin-top: 0.75rem; padding-left: 1.5rem;">
+          <li><strong>Activité</strong> — type de profil métier (Concessionnaire, Loueur, Agent, Marchand)</li>
+          <li><strong>Enseigne(s)</strong> — nom commercial vérifié</li>
+          <li><strong>Marque(s) Info(s)</strong> — au moins une marque renseignée</li>
+          <li><strong>Volume VO</strong> — indicateur de potentiel commercial</li>
+          <li><strong>Téléphone</strong> — contact joignable</li>
+        </ul>
+        <p class="insight-text" style="margin-top: 0.75rem;">Ces 5 champs doivent être obligatoires avant toute conversion Lead → Compte.</p>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7 : RESPONSABILITÉS ==================== -->
+    <section id="gestionnaires" class="report-section">
+      <div class="section-intro">
+        <span class="section-kicker">07 — Responsabilités</span>
+        <h2>Répartition des gestionnaires</h2>
+        <p>Analyse de la distribution des leads par gestionnaire Vente.</p>
+      </div>
+
+      <div class="grid-2cols">
+        <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+          <h3 style="margin-bottom: 1rem;">📊 Par gestionnaire Vente</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div><strong>Johaness</strong> : 3 121 leads</div>
+            <div><strong>Kylian</strong> : 143 leads</div>
+            <div><strong>Raph</strong> : 94 leads</div>
+            <div><strong>Laurent</strong> : 24 leads</div>
+            <div><strong>Michelange</strong> : 25 leads</div>
+            <div><strong>Pierre</strong> : 16 leads</div>
+            <div><strong>Roberto</strong> : 7 leads</div>
+            <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-light, #e2e8f0);">
+              <strong style="color:#ef4444;">AUTO DECLIC</strong> : <span style="font-size: 1.5rem; font-weight: 800;">6 206 leads</span>
+            </div>
+          </div>
         </div>
 
-        <div class="two-column-notes">
-          <article class="note-panel">
-            <h3>Catégories de filtres</h3>
-            <ul class="clean-list">
-              <li>Filtres définis par le système</li>
-              <li>Filtrer par champs</li>
-              <li>Filtrer par sous-formulaires</li>
-              <li>Filtrer par modules associés</li>
-            </ul>
-          </article>
-
-          <article class="note-panel">
-            <h3>Vues disponibles</h3>
-            <ul class="clean-list">
-              <li>Vue tableau</li>
-              <li>Vue Kanban</li>
-              <li>Affichage de graphe</li>
-              <li>Vue chronologique</li>
-              <li>Vue fractionnée</li>
-            </ul>
-          </article>
+        <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
+          <h3 style="margin-bottom: 1rem;">⚠️ Anomalies constatées</h3>
+          <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><strong>Déséquilibre de charge</strong><br>Un gestionnaire a <strong>3 121 leads</strong>, un autre seulement <strong>7</strong>. La charge n'est pas équitable.</li>
+            <li><strong>Leads orphelins</strong><br><strong>64%</strong> des leads (6 206) sont assignés à <strong>"AUTO DECLIC"</strong> — personne n'est responsable.</li>
+            <li><strong>Incohérence de rôle</strong><br><strong>2 leads</strong> ont un <strong>Gestionnaire Achat avec rôle Vendeur</strong> — périmètre incohérent.</li>
+            <li><strong>Leads bloqués</strong><br><strong>59 leads</strong> ont la notification <strong>"En attente d'un nouveau gestionnaire"</strong>, dont <strong>58 étrangers</strong> — potentiel commercial bloqué.</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="long-card">
-          <h3>Lecture d'audit</h3>
-          <p>
-            L'existence de plusieurs modes de lecture peut être utile, notamment pour l'analyse ou le pilotage.
-            En revanche, sans hiérarchisation claire, l'ensemble donne une impression de trop-plein fonctionnel.
-            Le risque est de complexifier l'expérience au lieu d'aider l'utilisateur à trouver plus vite les bons leads.
-          </p>
-        </div>
-      </section>
+      <div class="warning-box">
+        <strong>⚠️ Recommandations</strong>
+        <ul style="margin-top: 0.75rem; padding-left: 1.5rem;">
+          <li><strong>Réassigner les 6 206 leads "AUTO DECLIC"</strong> — distribution round-robin aux gestionnaires Vente actifs</li>
+          <li><strong>Équilibrer la charge</strong> — répartir équitablement les nouveaux leads</li>
+          <li><strong>Traiter les 58 leads étrangers bloqués</strong> — assigner un gestionnaire dédié</li>
+          <li><strong>Corriger les incohérences de rôle</strong> (Gestionnaire Achat avec rôle Vendeur)</li>
+        </ul>
+      </div>
 
-      <!-- ───────────────────────────── DETAIL ───────────────────────────── -->
-      <section id="detail" class="report-section">
-        <div class="section-intro">
-          <span class="section-kicker">Vue 05</span>
-          <h2>Détail d'un lead</h2>
-          <p>
-            Lorsqu'un utilisateur clique sur une ligne, le CRM ouvre une fiche très complète avec sections,
-            informations de contact, informations entreprise, rattachements, historique et champs techniques.
-          </p>
-        </div>
+      <div class="anomaly-box">
+        <strong>📌 Règle à implémenter</strong>
+        <p style="margin-top: 0.5rem;">Un lead sans gestionnaire humain ne devrait pas exister dans les vues actives. <strong>"AUTO DECLIC"</strong> ne devrait être qu'un assignation temporaire (max 48h).</p>
+      </div>
+    </section>
 
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Points positifs</h3>
-            <ul class="clean-list">
-              <li>La fiche permet d'avoir une vision détaillée du lead.</li>
-              <li>Les coordonnées principales restent visibles.</li>
-              <li>Le gestionnaire vente et le statut sont clairement identifiables.</li>
-              <li>La structure couvre les besoins vente et qualification.</li>
-            </ul>
-          </article>
 
-          <article class="info-card">
-            <h3>Points de friction</h3>
-            <ul class="clean-list">
-              <li>La page contient trop d'informations secondaires.</li>
-              <li>Des champs techniques devraient être retirés ou masqués.</li>
-              <li>Des sections entières restent vides.</li>
-              <li>La lecture de l'essentiel n'est pas assez priorisée.</li>
-            </ul>
-          </article>
-        </div>
 
-        <div class="insight-card insight-card--accent">
-          <strong>Enjeu fonctionnel :</strong> la fiche lead doit rester exhaustive, mais elle devrait d'abord
-          mettre en avant les informations d'action immédiate : contacter, qualifier, rattacher, relancer.
-        </div>
-      </section>
-
-      <!-- ───────────────────────────── QUALIFICATION ───────────────────────────── -->
+      <!-- ── 08 QUALIFICATION VERS COMPTE ── -->
       <section id="qualification" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">Vue 06</span>
+          <span class="section-kicker">08 — Conversion</span>
           <h2>Qualification vers un Compte</h2>
-          <p>
-            Avant de convertir un lead en Compte, un minimum d'informations structurantes doit être présent.
-            Sans ces données, la conversion crée des comptes incomplets qui dégradent la qualité globale du CRM.
-          </p>
         </div>
 
         <div class="editorial-grid">
           <article class="info-card">
             <h3>Champs requis pour convertir</h3>
             <ul class="clean-list">
-              <li><strong>Activité</strong> — type de profil métier (Concessionnaire, Loueur, Agent…)</li>
+              <li><strong>Activité</strong> — type de profil métier</li>
               <li><strong>Enseigne(s)</strong> — vérifiée et non vide</li>
-              <li><strong>Marque(s) Info(s)</strong> — au moins une marque renseignée</li>
-              <li><strong>Volume VO</strong> — indicateur de taille et de potentiel commercial</li>
-              <li><strong>Contact joignable</strong> — au moins un parmi : ligne directe, fixe ou e-mail valide</li>
+              <li><strong>Marque(s) Info(s)</strong> — au moins une marque</li>
+              <li><strong>Volume VO</strong> — indicateur de potentiel</li>
+              <li><strong>Contact joignable</strong> — téléphone ou email</li>
             </ul>
           </article>
 
           <article class="info-card">
-            <h3>Conversion bloquée si…</h3>
+            <h3>Ce qui bloque la conversion</h3>
             <ul class="clean-list">
-              <li>L'enseigne est vide ou générique ("à qualifier")</li>
-              <li>Aucune marque n'est renseignée</li>
-              <li>Le volume VO est inconnu</li>
-              <li>Aucun moyen de contact n'est disponible</li>
-              <li>L'activité n'a pas été identifiée</li>
+              <li>Enseigne vide ou "à qualifier"</li>
+              <li>Aucune marque renseignée</li>
+              <li>Volume VO inconnu</li>
+              <li>Aucun moyen de contact</li>
+              <li>Activité non identifiée</li>
             </ul>
           </article>
         </div>
 
         <div class="insight-card insight-card--accent">
-          <strong>Règle de conversion :</strong> un lead ne doit pas devenir un Compte tant que les 5 champs
-          socles ne sont pas renseignés. La conversion sans données fiables dégrade directement
-          la qualité du portefeuille Comptes.
-        </div>
-
-        <div class="section-intro" style="margin-top: 2.5rem;">
-          <span class="section-kicker">Scénarios</span>
-          <h3>Scénarios de qualification</h3>
-          <p>
-            Chaque lead en base peut se retrouver dans l'un de ces cas. Le scénario détermine
-            l'action à mener, pas uniquement le statut affiché dans le CRM.
-          </p>
-        </div>
-
-        <div class="actions-grid">
-
-          <article class="action-card action-card--high">
-            <span class="priority-badge">Bloquant</span>
-            <h3>Contacté — aucune info récoltée</h3>
-            <p>
-              Le lead a été joint (appel, e-mail) mais aucun champ clé n'a été renseigné à l'issue.
-              C'est le cas le plus problématique : le contact a eu lieu mais la donnée n'a pas progressé.
-              Une relance avec checklist de qualification obligatoire doit être déclenchée.
-            </p>
-          </article>
-
-          <article class="action-card action-card--high">
-            <span class="priority-badge">Bloquant</span>
-            <h3>Non contacté — données absentes</h3>
-            <p>
-              Le lead est présent dans le CRM sans coordonnées exploitables (ni téléphone, ni e-mail).
-              Sans point d'entrée, aucune action n'est possible. Ce lead doit être signalé,
-              enrichi manuellement ou archivé.
-            </p>
-          </article>
-
-          <article class="action-card action-card--medium">
-            <span class="priority-badge">À compléter</span>
-            <h3>Contacté — infos partielles</h3>
-            <p>
-              Le contact a été identifié, mais certains champs restent vides (ex : enseigne connue
-              mais volume VO absent, ou marques non renseignées). Le lead ne peut pas être converti
-              mais reste actif avec un objectif de complétion défini.
-            </p>
-          </article>
-
-          <article class="action-card action-card--medium">
-            <span class="priority-badge">À compléter</span>
-            <h3>Tentative de contact — pas de retour</h3>
-            <p>
-              Au moins une tentative de contact a été faite, sans réponse. Ce statut doit déclencher
-              une relance automatique après X jours. Sans réponse au bout de N tentatives,
-              le lead bascule en pot commun ou passe en "Hors cible".
-            </p>
-          </article>
-
-          <article class="action-card" style="border-left: 4px solid #22c55e;">
-            <span class="priority-badge" style="background: #22c55e;">Prêt à convertir</span>
-            <h3>Tous les champs socles renseignés</h3>
-            <p>
-              Activité connue, enseigne vérifiée, marque(s) renseignée(s), volume VO saisi,
-              contact joignable confirmé. Le lead peut être converti en Compte avec un Contact rattaché.
-              La fiche est prête pour le gestionnaire vente.
-            </p>
-          </article>
-
-          <article class="action-card" style="border-left: 4px solid #f59e0b;">
-            <span class="priority-badge" style="background: #f59e0b;">Actif dormant</span>
-            <h3>Fiche complète — Non intéressé</h3>
-            <p>
-              Tous les champs socles sont renseignés, mais le prospect a explicitement décliné.
-              Ce lead ne doit pas être converti ni blacklisté. Il reste en base avec l'état
-              "Non intéressé" et une relance planifiée à 6 mois. Une fiche complète a toujours
-              de la valeur — le contexte du prospect peut évoluer.
-            </p>
-          </article>
-
-          <article class="action-card" style="border-left: 4px solid #94a3b8;">
-            <span class="priority-badge" style="background: #94a3b8;">Exclu</span>
-            <h3>Hors cible / Blacklist / Ne pas contacter</h3>
-            <p>
-              Le lead est explicitement exclu du pipeline commercial. Il ne doit pas encombrer
-              les vues actives. Ces leads doivent être filtrés par défaut et archivés proprement,
-              tout en restant accessibles pour traçabilité.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="insight-card insight-card--warning" style="margin-top: 2rem;">
-          <strong>Constat clé :</strong> le statut CRM affiché (ex : "Contact identifié") ne garantit pas
-          que les données sont réellement exploitables. Un lead "contacté" avec zéro champ renseigné
-          est aussi problématique qu'un lead jamais touché. Le vrai indicateur de qualité, c'est
-          la complétude des champs socles, pas le statut seul.
+          <strong>Règle à implémenter :</strong> un lead ne doit pas devenir un Compte tant que les 5 champs socles ne sont pas renseignés. Actuellement, <strong>465 leads (4,8%)</strong> sont prêts à être convertis.
         </div>
       </section>
 
-      <!-- ───────────────────────────── VUES PAR PROFIL ───────────────────────────── -->
-      <section id="profils" class="report-section">
+      <!-- ── 09 RECOMMANDATIONS ── -->
+      <section id="recommandations" class="report-section report-section--final">
         <div class="section-intro">
-          <span class="section-kicker">Vue 07</span>
-          <h2>Vues par profil</h2>
-          <p>
-            Le module Leads est utilisé par quatre profils distincts. Chacun a des besoins
-            de lecture, d'action et de filtrage différents. Une vue unique pour tous
-            crée de la surcharge inutile pour chaque profil.
-          </p>
-        </div>
-
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>🧑‍💼 Vendeur</h3>
-            <ul class="clean-list">
-              <li><strong>Objectif :</strong> contacter, qualifier, relancer son portefeuille</li>
-              <li><strong>Champs clés :</strong> Téléphone, E-mail, Statut du Lead, Nb J dernière interaction, Gestionnaire Vente</li>
-              <li><strong>Vue par défaut :</strong> filtrée sur ses leads uniquement</li>
-              <li><strong>Actions autorisées :</strong> modifier le statut, ajouter une remarque, planifier un appel</li>
-              <li><strong>Masquer :</strong> N° SIRET, TVA, tmp_refresh, champs admin</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>🛒 Acheteur</h3>
-            <ul class="clean-list">
-              <li><strong>Objectif :</strong> évaluer le potentiel VO et la valeur commerciale du lead</li>
-              <li><strong>Champs clés :</strong> Volume VO, Marque(s) Info(s), Activité, Chiffre d'affaires, Pays</li>
-              <li><strong>Vue par défaut :</strong> filtrée sur les leads à fort volume VO</li>
-              <li><strong>Actions autorisées :</strong> consultation et annotation uniquement</li>
-              <li><strong>Masquer :</strong> champs de suivi commercial, logs d'activité détaillés</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>📣 Marketing</h3>
-            <ul class="clean-list">
-              <li><strong>Objectif :</strong> segmenter, analyser les tendances, alimenter les campagnes</li>
-              <li><strong>Champs clés :</strong> Pays, Activité, Disposition, Marque(s), Source, État prospect</li>
-              <li><strong>Vue par défaut :</strong> tous les leads, groupés par segment ou pays</li>
-              <li><strong>Actions autorisées :</strong> export, consultation, mise à jour des champs de segment</li>
-              <li><strong>Masquer :</strong> coordonnées directes, champs de gestion individuelle</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>⚙️ CRM / Administrateur</h3>
-            <ul class="clean-list">
-              <li><strong>Objectif :</strong> superviser, configurer, corriger et redistribuer les leads</li>
-              <li><strong>Champs clés :</strong> tous les champs visibles, y compris techniques</li>
-              <li><strong>Vue par défaut :</strong> vue globale sans filtre, tous les leads</li>
-              <li><strong>Actions autorisées :</strong> toutes — conversion, blacklist, réassignation, suppression</li>
-              <li><strong>Accès exclusif :</strong> tmp_refresh, N° SIRET, TVA, logs système</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="long-card">
-          <h3>Ce que ça implique dans Zoho CRM</h3>
-          <p>
-            Ces différences de besoins doivent se traduire par des <strong>profils de mise en page</strong> distincts dans Zoho
-            (Layout par rôle), des <strong>vues filtrées par défaut</strong> et des <strong>permissions par champ</strong>
-            selon le profil utilisateur. L'objectif n'est pas de restreindre l'accès à l'information,
-            mais de réduire le bruit visuel pour que chaque profil voie d'abord ce qui est utile à son action.
-          </p>
-        </div>
-
-        <div class="insight-card insight-card--accent">
-          <strong>Principe clé :</strong> un seul module, quatre lectures. La donnée est la même pour tous,
-          mais la présentation doit s'adapter au rôle. Ce n'est pas une question de droits,
-          c'est une question d'efficacité opérationnelle.
-        </div>
-      </section>
-
-      <!-- ───────────────────────────── ACTIONS ───────────────────────────── -->
-      <section id="actions" class="report-section report-section--final">
-        <div class="section-intro">
-          <span class="section-kicker">Plan d'action</span>
+          <span class="section-kicker">09 — Plan d'action</span>
           <h2>Actions recommandées</h2>
-          <p>
-            Les premières améliorations doivent porter sur la visibilité, la hiérarchie de lecture
-            et la réduction du bruit visuel dans le tableau comme dans la fiche détaillée.
-          </p>
         </div>
 
         <div class="actions-grid">
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Alléger la vue tableau</h3>
-            <p>Conserver visibles uniquement les colonnes les plus utiles au tri rapide et placer le reste en second niveau.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Réassigner les leads orphelins</h3>
+            <p>6 206 leads avec "AUTO DECLIC" → distribution round-robin aux gestionnaires Vente actifs.</p>
           </article>
 
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Rendre les listes métier plus lisibles</h3>
-            <p>Documenter clairement les 4 statuts lead, 7 états prospect, 5 notifications et 6 activités.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Convertir les leads complets</h3>
+            <p>465 leads ont les 5 champs socles → créer les Comptes et Contacts associés.</p>
           </article>
 
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Masquer les champs trop vides</h3>
-            <p>Réduire la présence permanente des champs peu remplis pour améliorer la vitesse de lecture.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Normaliser les numéros de téléphone</h3>
+            <p>Nettoyer les formats (00 → +, supprimer tirets/espaces) pour intégration Aircall.</p>
           </article>
 
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Créer des layouts par profil</h3>
-            <p>Configurer dans Zoho un layout Vendeur, Acheteur, Marketing et Admin avec les champs et vues adaptés à chaque rôle.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Ajouter un champ "Source"</h3>
+            <p>Pour tracer l'origine des leads (siteweb, fichier, scraping, formulaire).</p>
           </article>
 
           <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
-            <h3>Rationaliser les filtres</h3>
-            <p>Revoir la logique des catégories pour limiter l'effet de surcharge côté utilisateur.</p>
+            <span class="priority-badge">Priorité 2</span>
+            <h3>Qualifier les contacts avec téléphone</h3>
+            <p>5 061 leads ont un téléphone mais "Infos contact incomplet" → campagne de qualification.</p>
           </article>
 
           <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
-            <h3>Repenser la fiche détail</h3>
-            <p>Afficher d'abord l'actionnable et reléguer les blocs secondaires dans des sections repliables.</p>
+            <span class="priority-badge">Priorité 2</span>
+            <h3>Traiter les leads étrangers bloqués</h3>
+            <p>58 leads en "En attente d'un nouveau gestionnaire" → assigner un responsable.</p>
           </article>
 
           <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
-            <h3>Bloquer la conversion incomplète</h3>
-            <p>Mettre en place une règle ou un workflow Zoho qui empêche la conversion d'un lead tant que les 5 champs socles ne sont pas renseignés.</p>
+            <span class="priority-badge">Priorité 2</span>
+            <h3>Équilibrer la charge gestionnaires</h3>
+            <p>Répartir équitablement les leads entre les gestionnaires Vente.</p>
           </article>
 
-          <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
-            <h3>Gérer les leads "Non intéressés"</h3>
-            <p>Créer une vue dédiée aux leads complets mais non intéressés, avec relance automatique planifiée à 6 mois pour ne pas perdre ces actifs dormants.</p>
+          <article class="action-card action-card--low">
+            <span class="priority-badge">Priorité 3</span>
+            <h3>Nettoyer les noms "à qualifier"</h3>
+            <p>3 928 leads avec "à qualifier" → enrichir progressivement.</p>
           </article>
         </div>
 
@@ -631,9 +475,51 @@
       </section>
 
     </section>
-  </main>
+</main>
 
-  <script src="../index.js"></script>
+<script>
+  // Thème
+  (function() {
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    body.classList.toggle('theme-light', savedTheme === 'light');
+    if(toggle) toggle.classList.toggle('theme-light', savedTheme === 'light');
+    if(toggle) {
+      toggle.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        const newTheme = isLight ? 'dark' : 'light';
+        body.classList.toggle('theme-light');
+        toggle.classList.toggle('theme-light');
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  })();
+
+  // Graphique
+  const ctx = document.getElementById('completionChart')?.getContext('2d');
+  if(ctx) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Activité', 'Enseigne', 'Marque(s)', 'Volume VO', 'Contact', '5 champs OK'],
+        datasets: [{
+          label: 'Taux de complétude (%)',
+          data: [75.5, 79.1, 79.7, 80.9, 97.7, 4.8],
+          backgroundColor: ['#6366f1', '#f59e0b', '#ef4444', '#22c55e', '#8b5cf6', '#ec489a'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Pourcentage (%)' } } }
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

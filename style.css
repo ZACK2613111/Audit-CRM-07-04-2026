@@ -925,3 +925,53 @@ body {
   .report-lead { font-size: 16px; }
   .report-hero h1 { font-size: 36px; }
 }
+
+.stats-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: var(--card-bg, #fff);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border-light, #e2e8f0);
+      text-align: center;
+    }
+    .stat-card__value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .stat-card__label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-soft, #64748b);
+      margin-top: 0.5rem;
+    }
+    .anomaly-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+    }
+    .warning-box {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+    }
+    .insight-text {
+      font-size: 0.85rem;
+      color: var(--text-soft, #64748b);
+      margin-top: 0.5rem;
+    }
+    .grid-2cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
