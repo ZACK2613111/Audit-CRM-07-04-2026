@@ -1,0 +1,6 @@
+Nom,Société,Nombre VO en stock,Activité,Pays,Pays priorite,Test
+TestAuto1,Ferrari Milano,5,Concessionnaire,Italie,Italie,Oui
+TestAuto2,Pasta Queen Roma,0,Concessionnaire,Italie,Italie,Oui
+TestAuto3,AC Milan Biz,2,Concessionnaire,Italie,Italie,Oui
+TestAuto4,Lamborghini Test,3,Concessionnaire,Espagne,Espagne,Oui
+TestAuto5,Real Madrid Biz,1,Concessionnaire,Espagne,Espagne,Oui

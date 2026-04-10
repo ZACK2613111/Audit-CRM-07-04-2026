@@ -9,11 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Ton CSS existant -->
   <link rel="stylesheet" href="../style.css" />
   
-  <!-- Librairies -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body class="theme-dark page-audit">
@@ -22,8 +19,6 @@
     <span class="sun">☀️</span>
     <span class="moon">🌙</span>
 </button>
-
-<button id="exportPdfBtn" style="position: fixed; bottom: 2rem; right: 2rem; background: #dc2626; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 2rem; font-weight: 700; cursor: pointer; z-index: 1000; font-family: inherit; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">📄 Exporter en PDF</button>
 
 <header class="report-hero" id="top">
     <div class="report-hero__glow"></div>
@@ -37,31 +32,28 @@
 
       <h1>Comptes</h1>
       <p class="report-lead">
-        Analyse du module Comptes : <strong>13 101 enregistrements</strong> audités.
-        Intégrité des comptes convertis depuis les leads, lisibilité par profil,
-        qualité des champs, logique achat et vente.
+        Audit du module Comptes — <strong>13 101 enregistrements</strong> analysés.
+        Ce rapport présente les constats, les axes d'amélioration et les recommandations
+        pour optimiser la qualité des données et l'efficacité des équipes.
       </p>
     </div>
 </header>
 
-<main class="container report-layout" id="pdfContent">
+<main class="container report-layout">
     <aside class="toc">
       <div class="toc-card">
-        <p class="toc-label">Sur cette page</p>
+        <p class="toc-label">Navigation</p>
         <nav class="toc-links">
           <a href="#synthese">01 — Synthèse</a>
-          <a href="#statistiques">02 — Analyse & Statistiques</a>
-          <a href="#failles">03 — Failles critiques</a>
-          <a href="#scenarios">04 — Scénarios types</a>
-          <a href="#integrite">05 — Intégrité des comptes</a>
-          <a href="#diagramme">06 — Diagramme de requalification</a>
-          <a href="#tableau">07 — Tableau principal</a>
-          <a href="#champs-profils">08 — Champs par profil</a>
-          <a href="#nouveaux-champs">09 — Nouveaux champs vs Leads</a>
-          <a href="#statuts">10 — Statut achat</a>
-          <a href="#qualite-donnees">11 — Qualité des données</a>
-          <a href="#filtres">12 — Filtres</a>
-          <a href="#actions">13 — Actions recommandées</a>
+          <a href="#statistiques">02 — Indicateurs clés</a>
+          <a href="#ameliorations">03 — Axes d'amélioration</a>
+          <a href="#scenarios">04 — Cas d'usage</a>
+          <a href="#integrite">05 — Intégrité des données</a>
+          <a href="#processus">06 — Processus de qualification</a>
+          <a href="#vue-liste">07 — Vue liste</a>
+          <a href="#profils">08 — Vues par profil</a>
+          <a href="#champs-modules">09 — Analyse des champs</a>
+          <a href="#recommandations">10 — Recommandations</a>
         </nav>
       </div>
     </aside>
@@ -71,386 +63,368 @@
       <!-- ── 01 SYNTHESE ── -->
       <section id="synthese" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">01 — Lecture rapide</span>
-          <h2>Synthèse</h2>
+          <span class="section-kicker">01 — Vue d'ensemble</span>
+          <h2>Synthèse de l'audit</h2>
           <p>
-            Le module Comptes contient <strong>13 101 enregistrements</strong>. Il souffre de deux problèmes majeurs :
-            des comptes convertis sans données suffisantes (contact, NbVO, marques), et une vue liste trop chargée
-            qui nuit à la lisibilité des équipes achat et vente au quotidien.
+            Le module Comptes contient <strong>13 101 enregistrements</strong>.
+            L'analyse révèle des opportunités d'amélioration sur deux axes principaux :
+            la complétude des données et l'ergonomie des vues listes.
           </p>
         </div>
 
         <div class="summary-grid">
           <article class="summary-card">
-            <span class="summary-card__label">Constat principal</span>
-            <h3>Des comptes mal nés</h3>
-            <p>Près de 40% des comptes ont été convertis depuis des leads incomplets — sans contact, sans NbVO, ou sans marques.</p>
+            <span class="summary-card__label">Constat</span>
+            <h3>Qualité des données</h3>
+            <p>18% des comptes sont considérés comme complets. Un travail d'enrichissement ciblé permettrait d'atteindre 70% de complétude.</p>
           </article>
 
           <article class="summary-card">
-            <span class="summary-card__label">Risque opérationnel</span>
-            <h3>Surcharge visuelle critique</h3>
-            <p>23 colonnes dans la vue liste sur 13 101 lignes. Les vendeurs et acheteurs perdent du temps à chercher l'information.</p>
+            <span class="summary-card__label">Constat</span>
+            <h3>Ergonomie des vues</h3>
+            <p>La vue liste affiche 23 colonnes. Une personnalisation par profil améliorerait l'efficacité des équipes.</p>
           </article>
 
           <article class="summary-card">
-            <span class="summary-card__label">Priorité audit</span>
-            <h3>Nettoyer et restructurer</h3>
-            <p>Identifier les comptes invalides (~5 200 comptes concernés), les requalifier, et reconstruire les vues par profil.</p>
+            <span class="summary-card__label">Objectif</span>
+            <h3>Portefeuille fiable</h3>
+            <p>Mettre en place des règles de validation à la conversion lead → compte pour garantir la qualité en amont.</p>
           </article>
         </div>
       </section>
 
-      <!-- ── 02 ANALYSE & STATISTIQUES ── -->
+      <!-- ── 02 INDICATEURS CLES ── -->
       <section id="statistiques" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">02 — Données chiffrées</span>
-          <h2>Analyse & Statistiques</h2>
-          <p>Vue d'ensemble quantitative sur les 13 101 comptes. Ces indicateurs mesurent l'ampleur réelle des problèmes.</p>
+          <span class="section-kicker">02 — Mesures</span>
+          <h2>Indicateurs clés</h2>
+          <p>État des lieux quantitatif du module Comptes.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0;">
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Total comptes</div>
             <div style="font-size: 2.5rem; font-weight: 800;">13 101</div>
-            <div style="font-size: 0.8rem;">portefeuille complet</div>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Sans contact joignable</div>
-            <div style="font-size: 2.5rem; font-weight: 800; color: #ef4444;">3 927</div>
-            <div style="font-size: 0.8rem;">30% du total — faille critique</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Sans contact associé</div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #f59e0b;">3 927</div>
+            <div style="font-size: 0.8rem;">30% — opportunité d'enrichissement</div>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Sans NbVO renseigné</div>
             <div style="font-size: 2.5rem; font-weight: 800; color: #f59e0b;">4 846</div>
-            <div style="font-size: 0.8rem;">37% — inexploitables par acheteurs</div>
+            <div style="font-size: 0.8rem;">37% — à compléter pour l'équipe achat</div>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Sans marque(s) info(s)</div>
             <div style="font-size: 2.5rem; font-weight: 800; color: #f59e0b;">5 240</div>
-            <div style="font-size: 0.8rem;">40% — données critiques manquantes</div>
+            <div style="font-size: 0.8rem;">40% — information commerciale manquante</div>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Comptes complets</div>
             <div style="font-size: 2.5rem; font-weight: 800; color: #22c55e;">2 357</div>
-            <div style="font-size: 0.8rem;">seulement 18% du total</div>
+            <div style="font-size: 0.8rem;">18% — objectif : 70%</div>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light, #e2e8f0);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-soft, #64748b);">Colonnes dans vue liste</div>
             <div style="font-size: 2.5rem; font-weight: 800;">23</div>
-            <div style="font-size: 0.8rem;">dont 7 inutiles par profil</div>
+            <div style="font-size: 0.8rem;">recommandé : 10-12 par profil</div>
           </div>
         </div>
 
         <div style="background: var(--card-bg, #fff); border-radius: 1.5rem; padding: 1.5rem; margin: 2rem 0; border: 1px solid var(--border-light, #e2e8f0);">
-          <div style="font-weight: 700; margin-bottom: 1rem;">📊 Taux de complétude des champs critiques</div>
+          <div style="font-weight: 700; margin-bottom: 1rem;">📊 Taux de complétude par champ</div>
           <canvas id="completionChart" width="400" height="200" style="max-width: 100%; height: auto;"></canvas>
-        </div>
-
-        <div class="insight-card insight-card--warning">
-          <strong>Synthèse statistique :</strong> Seulement 18% des comptes sont pleinement exploitables.
-          Plus d’un tiers des comptes manquent des données essentielles pour les acheteurs (NbVO, marques).
-          Soit environ <strong>5 200 comptes à enrichir ou requalifier en urgence</strong>.
         </div>
       </section>
 
-      <!-- ── 03 FAILLES CRITIQUES ── -->
-      <section id="failles" class="report-section">
+      <!-- ── 03 AXES D'AMELIORATION ── -->
+      <section id="ameliorations" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">03 — Vulnérabilités</span>
-          <h2>Failles critiques identifiées</h2>
-          <p>Six failles majeures impactent la fiabilité du module Comptes sur les 13 101 enregistrements.</p>
+          <span class="section-kicker">03 — Points d'attention</span>
+          <h2>Axes d'amélioration identifiés</h2>
+          <p>Six axes ont été identifiés pour améliorer la qualité et l'exploitabilité du module Comptes.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #1 — Conversion sans contrôle <span style="background: #ef4444; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem;">Critique</span></div>
-            <p>Aucune validation n'empêche la conversion d'un lead incomplet vers Compte. 3 927 comptes sans contact polluent la base.</p>
-          </div>
-          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #2 — Surcharge visuelle <span style="background: #ef4444; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem;">Critique</span></div>
-            <p>23 colonnes visibles pour tous sur 13 101 lignes. Les utilisateurs sont noyés dans l'information.</p>
-          </div>
-          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #3 — Absence de vue par profil <span style="background: #ef4444; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem;">Critique</span></div>
-            <p>Vendeurs et acheteurs voient exactement les mêmes colonnes, alors que leurs besoins sont différents.</p>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">1 — Conversion lead → compte</div>
+            <p>Des règles de validation pourraient être ajoutées pour s'assurer que seuls les leads suffisamment complets deviennent des comptes.</p>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #f59e0b;">Faille #4 — Champs techniques exposés</div>
-            <p><code>tmp_refresh_achat</code>, <code>Heure de modification</code> apparaissent dans les vues utilisateurs — sans sens métier.</p>
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">2 — Personnalisation des vues</div>
+            <p>Adapter les colonnes affichées selon le profil utilisateur (vendeur, acheteur, marketing, admin).</p>
           </div>
           <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #f59e0b;">Faille #5 — Statut Achat décoratif</div>
-            <p>Aucun workflow déclenché par les valeurs du Statut Achat. Les comptes "INCOMPLET" ne génèrent aucune tâche.</p>
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">3 — Cohérence statuts / états</div>
+            <p>Uniformiser la logique entre Statut Achat/Vente et Etat Achat/Vente (ex: Blacklist).</p>
           </div>
-          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #ef4444;">
-            <div style="font-weight: 700; margin-bottom: 0.75rem; color: #ef4444;">Faille #6 — Données clés manquantes <span style="background: #ef4444; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem;">Critique</span></div>
-            <p>NbVO et marques sont vides dans ~40% des cas (≈5 200 comptes), inutilisables pour l'équipe achat.</p>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">4 — Champs techniques</div>
+            <p>Certains champs (tmp_refresh_achat, heure de modification) n'ont pas vocation à être visibles en routine.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">5 — Enrichissement des données</div>
+            <p>Un plan d'enrichissement ciblé sur les comptes sans NbVO, sans marques ou sans contact.</p>
+          </div>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #f59e0b;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">6 — Workflows automatisés</div>
+            <p>Déclencher des actions automatiques selon la valeur du Statut Achat (ex: tâche d'enrichissement).</p>
           </div>
         </div>
       </section>
 
-      <!-- ── 04 SCENARIOS TYPES ── -->
+      <!-- ── 04 CAS D'USAGE ── -->
       <section id="scenarios" class="report-section">
         <div class="section-intro">
           <span class="section-kicker">04 — Mises en situation</span>
-          <h2>Scénarios types</h2>
-          <p>Trois scénarios illustrent concrètement l'impact des failles sur le travail quotidien.</p>
+          <h2>Cas d'usage quotidiens</h2>
+          <p>Illustration de l'impact des améliorations sur le travail des équipes.</p>
         </div>
 
         <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem;">
-          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">📞 Scénario 1 — Un vendeur veut relancer des comptes</div>
-          <p><strong>Contexte :</strong> Julien (vendeur) ouvre le module Comptes (13 101 lignes, 23 colonnes). Il doit scroll horizontalement. L'info "Lex Jours sans interaction Vente" est noyée entre "tmp_refresh_achat" et "Code postal".</p>
-          <p><strong>Conséquence :</strong> Julien perd du temps, peut rater un compte prioritaire, ou abandonne la relance.</p>
+          <div style="font-weight: 700; margin-bottom: 0.5rem;">📞 Équipe vente — Relance clients</div>
+          <p><strong>Situation actuelle :</strong> 23 colonnes, information "Lex Jours sans interaction" difficile à trouver.</p>
+          <p><strong>Avec amélioration :</strong> Vue dédiée vendeur avec 8 colonnes essentielles. Gain de temps immédiat.</p>
         </div>
 
         <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem;">
-          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">🛒 Scénario 2 — Un acheteur cherche des stocks VO</div>
-          <p><strong>Contexte :</strong> Sophie (acheteuse) filtre les comptes avec NbVO > 10. Mais 37% des comptes (4 846) n'ont pas de NbVO renseigné. Elle rate des opportunités.</p>
-          <p><strong>Conséquence :</strong> Décisions d'achat basées sur une base incomplète. Risque de sous-approvisionnement.</p>
+          <div style="font-weight: 700; margin-bottom: 0.5rem;">🛒 Équipe achat — Recherche de stocks</div>
+          <p><strong>Situation actuelle :</strong> 37% des comptes sans NbVO → filtrage inefficace.</p>
+          <p><strong>Avec amélioration :</strong> Rendre NbVO obligatoire à la conversion. Base fiable pour les décisions d'achat.</p>
         </div>
 
         <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.5rem; border-left: 4px solid #3b82f6;">
-          <div style="font-weight: 700; margin-bottom: 0.5rem; color: #3b82f6;">⚠️ Scénario 3 — Un compte "INCOMPLET" sans action</div>
-          <p><strong>Contexte :</strong> Un commercial passe un compte en Statut Achat = "INCOMPLET". Aucun workflow ne se déclenche. Le compte reste dans cet état pendant des mois.</p>
-          <p><strong>Conséquence :</strong> Le compte n'est jamais enrichi. Il pourrit la base et fausse les statistiques.</p>
+          <div style="font-weight: 700; margin-bottom: 0.5rem;">⚠️ Suivi des comptes incomplets</div>
+          <p><strong>Situation actuelle :</strong> Statut "INCOMPLET" sans action automatique.</p>
+          <p><strong>Avec amélioration :</strong> Workflow déclenchant une tâche d'enrichissement assignée au bon gestionnaire.</p>
         </div>
       </section>
 
       <!-- ── 05 INTEGRITE ── -->
       <section id="integrite" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">05 — Problème identifié</span>
-          <h2>Intégrité des comptes convertis</h2>
-          <p>Un compte ne devrait exister que s'il a été correctement qualifié depuis un lead. Or, des comptes ont été convertis sans critères minimaux.</p>
+          <span class="section-kicker">05 — Qualité des données</span>
+          <h2>Intégrité des comptes</h2>
+          <p>Un compte devrait être créé uniquement à partir d'un lead suffisamment qualifié.</p>
         </div>
 
         <div class="editorial-grid">
           <article class="info-card">
-            <h3>Ce qu'on trouve dans la base (13 101 comptes)</h3>
+            <h3>État des lieux</h3>
             <ul class="clean-list">
-              <li>3 927 comptes sans contact joignable (ni téléphone, ni e-mail)</li>
-              <li>4 846 comptes sans Nombre VO en stock renseigné</li>
-              <li>5 240 comptes sans Marque(s) info(s) identifiée</li>
-              <li>Des comptes avec enseigne vide ou générique</li>
-              <li>Des comptes sans activité définie</li>
+              <li>3 927 comptes sans contact associé</li>
+              <li>4 846 comptes sans NbVO renseigné</li>
+              <li>5 240 comptes sans marque(s) info(s)</li>
+              <li>310 comptes sans activité définie</li>
             </ul>
           </article>
 
           <article class="info-card">
-            <h3>Conséquences directes</h3>
+            <h3>Impact opérationnel</h3>
             <ul class="clean-list">
-              <li>Un acheteur ne peut pas évaluer le potentiel d'un compte sans NbVO ni marques</li>
-              <li>Un vendeur ne peut pas relancer un compte sans coordonnées</li>
-              <li>Le portefeuille est gonflé de comptes inutilisables (~5 200)</li>
-              <li>Les KPIs sont faussés</li>
+              <li>L'équipe achat ne peut pas évaluer les comptes sans NbVO</li>
+              <li>L'équipe vente ne peut pas relancer sans coordonnées</li>
+              <li>Les KPIs portefeuille sont impactés</li>
             </ul>
           </article>
         </div>
-
-        <div class="insight-card insight-card--warning">
-          <strong>Règle fondamentale :</strong> un compte sans contact ET sans NbVO n'est pas un compte — c'est un lead mal converti.
-        </div>
       </section>
 
-      <!-- ── 06 DIAGRAMME DE REQUALIFICATION ── -->
-      <section id="diagramme" class="report-section">
+      <!-- ── 06 PROCESSUS DE QUALIFICATION ── -->
+      <section id="processus" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">06 — Processus</span>
-          <h2>Diagramme de requalification</h2>
-          <p>Logique de décision à appliquer face à un compte suspect ou incomplet.</p>
+          <span class="section-kicker">06 — Méthodologie</span>
+          <h2>Processus de qualification recommandé</h2>
+          <p>Arbre de décision pour évaluer la complétude d'un compte.</p>
         </div>
 
         <div class="long-card">
-          <h3>Arbre de décision — Compte valide ou à retraiter ?</h3>
+          <h3>Critères de compte valide</h3>
           <div style="margin-top: 1.5rem;">
-            <p><strong>1.</strong> Le compte a-t-il un contact joignable ?</p>
-            <p style="margin-left: 1.5rem;">✅ Oui → passer à l'étape 2</p>
-            <p style="margin-left: 1.5rem;">❌ Non → remettre en Lead pour enrichissement</p>
+            <p><strong>1.</strong> Un contact joignable est rattaché au compte ?</p>
+            <p style="margin-left: 1.5rem;">→ Oui : passer au critère 2</p>
+            <p style="margin-left: 1.5rem;">→ Non : enrichissement nécessaire</p>
             
-            <p style="margin-top: 1rem;"><strong>2.</strong> Le compte a-t-il un NbVO renseigné ?</p>
-            <p style="margin-left: 1.5rem;">✅ Oui → passer à l'étape 3</p>
-            <p style="margin-left: 1.5rem;">❌ Non → Statut Achat = "INCOMPLET"</p>
+            <p style="margin-top: 1rem;"><strong>2.</strong> Le NbVO est renseigné ?</p>
+            <p style="margin-left: 1.5rem;">→ Oui : passer au critère 3</p>
+            <p style="margin-left: 1.5rem;">→ Non : Statut Achat = INCOMPLET</p>
             
-            <p style="margin-top: 1rem;"><strong>3.</strong> Le compte a-t-il une marque renseignée ?</p>
-            <p style="margin-left: 1.5rem;">✅ Oui → compte valide</p>
-            <p style="margin-left: 1.5rem;">❌ Non → Statut Achat = "INCOMPLET"</p>
+            <p style="margin-top: 1rem;"><strong>3.</strong> Une marque est renseignée ?</p>
+            <p style="margin-left: 1.5rem;">→ Oui : compte qualifié</p>
+            <p style="margin-left: 1.5rem;">→ Non : Statut Achat = INCOMPLET</p>
             
-            <p style="margin-top: 1rem; padding: 0.75rem; background: #22c55e10; border-left: 3px solid #22c55e;"><strong>✓ Compte valide</strong> — exploitable par les équipes</p>
+            <p style="margin-top: 1rem; padding: 0.75rem; background: #22c55e10; border-left: 3px solid #22c55e;"><strong>✓ Compte qualifié</strong> — exploitable par les équipes</p>
           </div>
         </div>
       </section>
 
-      <!-- ── 07 TABLEAU PRINCIPAL ── -->
-      <section id="tableau" class="report-section">
+      <!-- ── 07 VUE LISTE ── -->
+      <section id="vue-liste" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">07 — Vue liste</span>
-          <h2>Tableau principal</h2>
-          <p>La vue Comptes présente <strong>13 101 enregistrements</strong> dans un tableau de 23 colonnes.</p>
+          <span class="section-kicker">07 — Ergonomie</span>
+          <h2>Vue liste actuelle</h2>
+          <p>23 colonnes sont actuellement affichées pour l'ensemble des utilisateurs.</p>
         </div>
 
         <div class="capture-strip">
           <figure class="capture-large">
             <img src="../images/04-comptes/1.png" alt="Vue tableau du module Comptes" />
-            <figcaption>Vue liste — 13 101 enregistrements, 23 colonnes</figcaption>
+            <figcaption>Vue liste actuelle — 13 101 enregistrements, 23 colonnes</figcaption>
           </figure>
         </div>
-
-        <div class="insight-card insight-card--warning">
-          <strong>Problème central :</strong> afficher 23 colonnes identiques à tous les profils sur 13 101 lignes,
-          c'est faire travailler chaque utilisateur à travers le bruit des autres colonnes.
-        </div>
       </section>
 
-      <!-- ── 08 CHAMPS PAR PROFIL ── -->
-      <section id="champs-profils" class="report-section">
+      <!-- ── 08 VUES PAR PROFIL ── -->
+      <section id="profils" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">08 — Vues par profil</span>
-          <h2>Champs par profil utilisateur</h2>
-          <p>Répartition recommandée selon le profil pour que chaque utilisateur voie uniquement l'utile.</p>
+          <span class="section-kicker">08 — Personnalisation</span>
+          <h2>Vues recommandées par profil</h2>
+          <p>Propositions d'organisation des colonnes selon les besoins de chaque équipe.</p>
         </div>
 
         <div class="editorial-grid">
           <article class="info-card">
-            <h3>🧑‍💼 Vendeur — Vue allégée</h3>
+            <h3>🧑‍💼 Profil Vendeur</h3>
             <ul class="clean-list">
-              <li><strong>Garder :</strong> Nom du Compte, Téléphone, Pays, Activité, Enseigne(s)</li>
-              <li><strong>Garder :</strong> Personne qui gère les ventes, Lex Jours sans interaction Vente</li>
-              <li><strong>Masquer :</strong> Gestionnaire Achat, tmp_refresh_achat, N° TVA, adresse</li>
+              <li><strong>À conserver :</strong> Nom, Téléphone, Pays, Activité, Enseigne(s)</li>
+              <li><strong>À conserver :</strong> Gestionnaire Vente, Lex Jours sans interaction Vente</li>
+              <li><strong>À masquer :</strong> Gestionnaire Achat, champs techniques, adresse, TVA</li>
             </ul>
           </article>
 
           <article class="info-card">
-            <h3>🛒 Acheteur — Vue allégée</h3>
+            <h3>🛒 Profil Acheteur</h3>
             <ul class="clean-list">
-              <li><strong>Garder :</strong> Nom du Compte, Pays, Marque(s) info(s), Nombre VO en stock</li>
-              <li><strong>Garder :</strong> Gestionnaire Achat, Lex Jours sans interaction Achat</li>
-              <li><strong>Masquer :</strong> Personne qui gère les ventes, tmp_refresh_achat</li>
+              <li><strong>À conserver :</strong> Nom, Pays, Marque(s) info(s), NbVO en stock</li>
+              <li><strong>À conserver :</strong> Gestionnaire Achat, Lex Jours sans interaction Achat</li>
+              <li><strong>À masquer :</strong> Gestionnaire Vente, champs techniques</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <!-- ── 09 NOUVEAUX CHAMPS ── -->
-      <section id="nouveaux-champs" class="report-section">
+      <!-- ── 09 ANALYSE DES CHAMPS ── -->
+      <section id="champs-modules" class="report-section">
         <div class="section-intro">
-          <span class="section-kicker">09 — Comparaison</span>
-          <h2>Nouveaux champs vs module Leads</h2>
-          <p>Le module Comptes introduit des champs spécifiques qui n'existaient pas dans Leads.</p>
+          <span class="section-kicker">09 — Analyse détaillée</span>
+          <h2>État des champs par famille</h2>
+          <p>Analyse de complétude pour chaque catégorie d'information.</p>
         </div>
 
-        <div class="two-column-notes">
-          <article class="note-panel">
-            <h3>Champs nouveaux dans Comptes</h3>
-            <ul class="clean-list">
-              <li>Gestionnaire Achat, Statut Achat</li>
-              <li>Lex Jours sans interaction Vente/Achat</li>
-              <li>tmp_refresh_achat</li>
-              <li>Adresse de facturation</li>
+        <div style="margin-top: 2rem;">
+          <h3 style="border-left: 4px solid #6366f1; padding-left: 1rem;">Statuts et états</h3>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0;">
+            <p><strong>Statut Achat non renseigné :</strong> 596 comptes (4,5%)</p>
+            <p><strong>Incohérence Blacklist :</strong> 7 comptes (Achat) / 85 comptes (Vente) — à harmoniser</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3 style="border-left: 4px solid #6366f1; padding-left: 1rem;">Gestionnaires et responsabilités</h3>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0;">
+            <p><strong>Comptes sans gestionnaire Vente (user réel) :</strong> 5 352</p>
+            <p><strong>Comptes sans gestionnaire Achat (user réel) :</strong> 515</p>
+            <p><strong>Comptes avec gestionnaire "Auto Declic" :</strong> 7 507 — opportunité de réaffectation</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3 style="border-left: 4px solid #6366f1; padding-left: 1rem;">Informations légales et commerciales</h3>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0;">
+            <p><strong>SIRET manquant (France) :</strong> 105 comptes</p>
+            <p><strong>TVA INTRA manquant (hors France) :</strong> 3 212 comptes</p>
+            <p><strong>Chiffre d'affaires non renseigné :</strong> 7 656 comptes (58%)</p>
+            <p><strong>Téléphone non renseigné :</strong> 945 comptes</p>
+            <p><strong>Email non renseigné :</strong> 12 056 comptes (92%)</p>
+            <p><strong>NbVO non renseigné ou à zéro :</strong> 3 379 comptes (26%)</p>
+            <p><strong>Activité non renseignée :</strong> 310 comptes</p>
+            <p><strong>Enseigne non renseignée :</strong> 1 406 comptes</p>
+            <p><strong>Marques info(s) non renseignées :</strong> 1 742 comptes</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3 style="border-left: 4px solid #6366f1; padding-left: 1rem;">Informations pôle vente</h3>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0;">
+            <p><strong>Date dernière commande non renseignée :</strong> 11 671 comptes (89%)</p>
+            <p><strong>Modèle(s) recherché(s) non renseigné :</strong> 13 038 comptes (99,5%)</p>
+            <p><strong>Mode de règlement non renseigné :</strong> 12 453 comptes (95%)</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <h3 style="border-left: 4px solid #6366f1; padding-left: 1rem;">Flags de complétude</h3>
+          <div style="background: var(--card-bg, #fff); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0;">
+            <p>Cinq flags permettent un suivi automatisé de la qualité :</p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+              <li>SIRET COMPLETÉ</li>
+              <li>VO COMPLETÉ</li>
+              <li>MARQUES INFO COMPLETÉ</li>
+              <li>ACTIVITÉ COMPLETÉ</li>
+              <li>CHIFFRE AFFAIRE COMPLETÉ</li>
             </ul>
-          </article>
-
-          <article class="note-panel">
-            <h3>Ce que ça révèle</h3>
-            <p>Ces champs montrent que le module Comptes est pensé pour le suivi commercial durable — à condition qu'ils soient correctement renseignés et visibles par les bons profils.</p>
-          </article>
+            <p style="margin-top: 0.75rem;">Recommandation : vérifier la cohérence entre chaque flag et son champ source.</p>
+          </div>
         </div>
       </section>
 
-      <!-- ── 10 STATUT ACHAT ── -->
-      <section id="statuts" class="report-section">
+      <!-- ── 10 RECOMMANDATIONS ── -->
+      <section id="recommandations" class="report-section report-section--final">
         <div class="section-intro">
-          <span class="section-kicker">10 — Valeurs métier</span>
-          <h2>Statut achat</h2>
-          <p>Le champ Statut Achat qualifie la valeur commerciale du compte côté achat.</p>
-        </div>
-
-        <div class="editorial-grid">
-          <article class="info-card">
-            <h3>Valeurs existantes</h3>
-            <ul class="clean-list">
-              <li><strong>NON INTERESSE avec potentiel</strong> — à relancer</li>
-              <li><strong>PETIT FAISEUR</strong> — volume trop faible</li>
-              <li><strong>INCOMPLET</strong> — données manquantes</li>
-              <li><strong>FERME Blacklist</strong> — exclure définitivement</li>
-            </ul>
-          </article>
-
-          <article class="info-card">
-            <h3>Actions associées recommandées</h3>
-            <ul class="clean-list">
-              <li>INCOMPLET → tâche d'enrichissement automatique</li>
-              <li>NON INTERESSE → relance programmée à 6 mois</li>
-              <li>FERME Blacklist → archivage définitif</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- ── 11 QUALITE DONNEES ── -->
-      <section id="qualite-donnees" class="report-section">
-        <div class="section-intro">
-          <span class="section-kicker">11 — Taux de remplissage</span>
-          <h2>Qualité des données</h2>
-          <p>Tous les champs ne sont pas égaux en termes de complétude sur les 13 101 comptes.</p>
-        </div>
-
-        <div class="insight-card insight-card--warning">
-          <strong>Point de vigilance :</strong> NbVO et Marque(s) sont les deux champs les plus critiques pour les acheteurs.
-          Avec respectivement 37% et 40% de taux de vide, environ <strong>5 200 comptes sont inexploitables côté achat</strong>.
-        </div>
-      </section>
-
-      <!-- ── 12 FILTRES ── -->
-      <section id="filtres" class="report-section">
-        <div class="section-intro">
-          <span class="section-kicker">12 — Navigation</span>
-          <h2>Filtres recommandés par profil</h2>
-          <ul class="clean-list">
-            <li><strong>Vendeur :</strong> mes comptes, Lex Jours > 30, sans interaction récente</li>
-            <li><strong>Acheteur :</strong> Statut Achat = INCOMPLET, NbVO > X, par pays</li>
-            <li><strong>Admin :</strong> comptes sans Contact, comptes mal convertis</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ── 13 ACTIONS ── -->
-      <section id="actions" class="report-section report-section--final">
-        <div class="section-intro">
-          <span class="section-kicker">13 — Plan d'action</span>
-          <h2>Actions recommandées</h2>
+          <span class="section-kicker">10 — Plan d'action</span>
+          <h2>Recommandations</h2>
+          <p>Actions prioritaires pour améliorer la qualité et l'exploitabilité du module Comptes.</p>
         </div>
 
         <div class="actions-grid">
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Auditer les comptes sans Contact</h3>
-            <p>3 927 comptes concernés. Les requalifier en Lead ou déclencher un enrichissement forcé.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Auditer les comptes sans contact</h3>
+            <p>3 927 comptes concernés. Plan d'enrichissement ou requalification en lead.</p>
           </article>
+
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
-            <h3>Enrichir les comptes sans NbVO ni Marques</h3>
-            <p>~5 200 comptes inexploitables par les acheteurs. Campagne d'enrichissement prioritaire.</p>
+            <span class="priority-badge">Priorité 1</span>
+            <h3>Enrichir les comptes sans NbVO ni marques</h3>
+            <p>Environ 5 200 comptes. Campagne d'enrichissement prioritaire pour l'équipe achat.</p>
           </article>
+
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
+            <span class="priority-badge">Priorité 1</span>
             <h3>Créer des vues par profil</h3>
-            <p>Configurer des layouts Vendeur, Acheteur, Marketing et Admin.</p>
+            <p>Configurer des layouts spécifiques pour vendeurs, acheteurs, marketing et administration.</p>
           </article>
+
           <article class="action-card action-card--high">
-            <span class="priority-badge">Haute</span>
+            <span class="priority-badge">Priorité 1</span>
             <h3>Masquer les champs techniques</h3>
-            <p>tmp_refresh_achat, Heure de modification hors vues utilisateurs.</p>
+            <p>tmp_refresh_achat, heure de modification — à retirer des vues utilisateurs.</p>
           </article>
+
           <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
-            <h3>Bloquer la conversion Lead → Compte</h3>
-            <p>Rendre NbVO, Marques et Contact obligatoires avant conversion.</p>
+            <span class="priority-badge">Priorité 2</span>
+            <h3>Ajouter des règles de validation à la conversion</h3>
+            <p>Rendre NbVO, marques et contact obligatoires avant conversion lead → compte.</p>
           </article>
+
           <article class="action-card action-card--medium">
-            <span class="priority-badge">Moyenne</span>
+            <span class="priority-badge">Priorité 2</span>
             <h3>Automatiser les workflows Statut Achat</h3>
-            <p>Déclencher des actions selon la valeur choisie.</p>
+            <p>Déclencher des actions automatiques selon la valeur du statut (INCOMPLET → tâche d'enrichissement).</p>
+          </article>
+
+          <article class="action-card action-card--medium">
+            <span class="priority-badge">Priorité 2</span>
+            <h3>Harmoniser les incohérences Blacklist</h3>
+            <p>92 comptes à corriger pour aligner Statut et Etat Blacklist.</p>
+          </article>
+
+          <article class="action-card action-card--low">
+            <span class="priority-badge">Priorité 3</span>
+            <h3>Enrichir les champs secondaires</h3>
+            <p>Mode de règlement, modèle recherché, date dernière commande — à valoriser progressivement.</p>
           </article>
         </div>
 
@@ -461,7 +435,7 @@
 </main>
 
 <script>
-  // Thème (dark/light)
+  // Thème
   (function() {
     const toggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -482,7 +456,7 @@
     }
   })();
 
-  // Graphique Chart.js
+  // Graphique
   const ctx = document.getElementById('completionChart')?.getContext('2d');
   if(ctx) {
     new Chart(ctx, {
@@ -506,27 +480,6 @@
           y: { beginAtZero: true, max: 100, title: { display: true, text: 'Pourcentage (%)' } }
         }
       }
-    });
-  }
-
-  // Export PDF qui fonctionne
-  const pdfBtn = document.getElementById('exportPdfBtn');
-  if(pdfBtn) {
-    pdfBtn.addEventListener('click', function() {
-      const element = document.getElementById('pdfContent');
-      if(!element) {
-        alert("Contenu non trouvé");
-        return;
-      }
-      
-      const opt = {
-        margin: [0.5, 0.5, 0.5, 0.5],
-        filename: 'audit_comptes_13101.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, letterRendering: true, useCORS: true },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
     });
   }
 </script>
